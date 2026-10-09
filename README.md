@@ -6,14 +6,9 @@ Sitio de una sola página (`index.html`) hecho con Tailwind CSS (por CDN) y Goog
 
 El avatar del inicio está en `img/avatar.webp` y el CV en `TomasPopolizio_CV_2026.pdf`.
 
-Para completar el resto, subí estos archivos a la carpeta `img/`. Si alguno falta, el sitio muestra un placeholder:
-
-| Archivo | Dónde aparece |
-| --- | --- |
-| `img/foto.jpg` | Polaroid de "Sobre mí" (foto real) |
-| `img/qr-linkedin.png` | QR del footer (LinkedIn) |
-| `img/qr-instagram.png` | QR del footer (Instagram) |
+Para la foto de "Sobre mí", subí `img/foto.jpg` (si falta, se muestra un placeholder).
 
 ## Publicar en GitHub Pages
 
-Settings → Pages → "Deploy from a branch" → `main` / root.
+Se publica solo con GitHub Actions (`.github/workflows/pages.yml`) en cada cambio a `main`:
+https://tomaspopolizio.github.io/portfolio/
