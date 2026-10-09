@@ -1,463 +1,801 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="es" class="scroll-smooth">
 <head>
-    <meta charset="utf-8">
-    <title>Portafolio</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="Free HTML Templates" name="keywords">
-    <meta content="Free HTML Templates" name="description">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio UX/UI - Tomás Popolizio</title>
+    <meta name="description" content="Portfolio de Tomás Popolizio, diseñador UX/UI y Product Designer en Buenos Aires. Casos de UX Research, UI Design y UX Writing.">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23020b24'/%3E%3Cpolygon points='50,10 58,38 88,28 66,50 88,72 58,62 50,90 42,62 12,72 34,50 12,28 42,38' fill='%23ffde00'/%3E%3C/svg%3E">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Inter:wght@400;500;600;700;900&family=Outfit:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --brand-blue: #020b24; /* Azul oscuro */
+            --brand-yellow: #ffde00; /* Amarillo */
+            --brand-red: #ff3366; /* Rojo/Rosa */
+            --paper-white: #f8f9fa; /* Blanco papel */
+        }
 
-    <!-- Favicon -->
-    <link href="img/favicon.ico" rel="icon">
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--brand-blue);
+            color: var(--paper-white);
+            overflow-x: hidden;
+        }
 
-    <!-- Google Web Fonts -->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+        h1, h2, h3, h4, .font-display {
+            font-family: 'Outfit', sans-serif;
+        }
 
-    <!-- Font Awesome -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+        .font-hand {
+            font-family: 'Caveat', cursive;
+        }
 
-    <!-- Libraries Stylesheet -->
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+        .bg-noise {
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+        }
 
-    <!-- Customized Bootstrap Stylesheet -->
-    <link href="css/style.css" rel="stylesheet">
+        .torn-top {
+            clip-path: polygon(0% 15px, 2% 0px, 5% 10px, 8% 2px, 12% 14px, 15% 4px, 18% 18px, 22% 3px, 25% 12px, 28% 2px, 32% 16px, 35% 6px, 38% 14px, 42% 2px, 45% 16px, 48% 4px, 52% 14px, 55% 3px, 58% 18px, 62% 2px, 65% 12px, 68% 4px, 72% 16px, 75% 2px, 78% 14px, 82% 3px, 85% 12px, 88% 2px, 92% 14px, 95% 4px, 98% 12px, 100% 0px, 100% 100%, 0% 100%);
+        }
+
+        .torn-bottom {
+            clip-path: polygon(0% 0%, 100% 0%, 100% calc(100% - 15px), 98% 100%, 95% calc(100% - 10px), 92% calc(100% - 2px), 88% calc(100% - 14px), 85% calc(100% - 4px), 82% calc(100% - 18px), 78% calc(100% - 3px), 75% calc(100% - 12px), 72% calc(100% - 2px), 68% calc(100% - 16px), 65% calc(100% - 6px), 62% calc(100% - 14px), 58% calc(100% - 2px), 55% calc(100% - 16px), 52% calc(100% - 4px), 48% calc(100% - 14px), 45% calc(100% - 3px), 42% calc(100% - 18px), 38% calc(100% - 2px), 35% calc(100% - 12px), 32% calc(100% - 4px), 28% calc(100% - 16px), 25% calc(100% - 2px), 22% calc(100% - 14px), 18% calc(100% - 3px), 15% calc(100% - 12px), 12% calc(100% - 2px), 8% calc(100% - 14px), 5% calc(100% - 4px), 2% calc(100% - 12px), 0% 100%);
+        }
+
+        /* Secciones con ambos bordes rasgados */
+        .torn-top.torn-bottom {
+            clip-path: polygon(0% 15px, 2% 0px, 5% 10px, 8% 2px, 12% 14px, 15% 4px, 18% 18px, 22% 3px, 25% 12px, 28% 2px, 32% 16px, 35% 6px, 38% 14px, 42% 2px, 45% 16px, 48% 4px, 52% 14px, 55% 3px, 58% 18px, 62% 2px, 65% 12px, 68% 4px, 72% 16px, 75% 2px, 78% 14px, 82% 3px, 85% 12px, 88% 2px, 92% 14px, 95% 4px, 98% 12px, 100% 0px, 100% calc(100% - 15px), 98% 100%, 95% calc(100% - 10px), 92% calc(100% - 2px), 88% calc(100% - 14px), 85% calc(100% - 4px), 82% calc(100% - 18px), 78% calc(100% - 3px), 75% calc(100% - 12px), 72% calc(100% - 2px), 68% calc(100% - 16px), 65% calc(100% - 6px), 62% calc(100% - 14px), 58% calc(100% - 2px), 55% calc(100% - 16px), 52% calc(100% - 4px), 48% calc(100% - 14px), 45% calc(100% - 3px), 42% calc(100% - 18px), 38% calc(100% - 2px), 35% calc(100% - 12px), 32% calc(100% - 4px), 28% calc(100% - 16px), 25% calc(100% - 2px), 22% calc(100% - 14px), 18% calc(100% - 3px), 15% calc(100% - 12px), 12% calc(100% - 2px), 8% calc(100% - 14px), 5% calc(100% - 4px), 2% calc(100% - 12px), 0% 100%);
+        }
+
+        .tape-blue { background: rgba(29, 78, 216, 0.7); backdrop-filter: blur(4px); box-shadow: 0 1px 3px rgba(0,0,0,0.2); }
+        .tape-yellow { background: rgba(255, 222, 0, 0.8); backdrop-filter: blur(4px); box-shadow: 0 1px 3px rgba(0,0,0,0.2); }
+        .tape-red { background: rgba(255, 51, 102, 0.8); backdrop-filter: blur(4px); box-shadow: 0 1px 3px rgba(0,0,0,0.2); }
+
+        .float-slow { animation: float 6s ease-in-out infinite; }
+        .float-fast { animation: float 4s ease-in-out infinite reverse; }
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(2deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            .float-slow, .float-fast, .animate-pulse { animation: none; }
+        }
+
+        a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
+            outline: 3px solid var(--brand-yellow);
+            outline-offset: 3px;
+        }
+
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: var(--brand-blue); }
+        ::-webkit-scrollbar-thumb { background: var(--brand-yellow); border-radius: 5px; }
+    </style>
 </head>
+<body class="antialiased bg-noise relative">
 
-<body data-spy="scroll" data-target=".navbar" data-offset="51">
-    <!-- Navbar Start -->
-    <nav class="navbar fixed-top shadow-sm navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-lg-5">
-        <a href="index.html" class="navbar-brand ml-lg-3">
-        </a>
-        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse px-lg-3" id="navbarCollapse">
-            <div class="navbar-nav m-auto py-0">
-                <a href="#home" class="nav-item nav-link active">Inicio</a>
-                <a href="#about" class="nav-item nav-link">Sobre mi</a>
-                <a href="#qualification" class="nav-item nav-link">Educacion y Experiencia</a>
-                <a href="#skill" class="nav-item nav-link">Habilidades</a>
-                <a href="#service" class="nav-item nav-link">Mis Servicios</a>
-                <a href="#portfolio" class="nav-item nav-link">Portfolio</a>
-            </div>
-        </div>
+    <nav class="fixed top-4 right-4 sm:top-6 sm:right-6 z-50 flex gap-3" aria-label="Principal">
+        <a href="#sobre-mi" class="hidden sm:block px-5 py-2 rounded-full border-2 border-white/20 bg-black/30 backdrop-blur-md text-white font-semibold hover:bg-white hover:text-black transition transform hover:scale-105">Sobre Mí</a>
+        <a href="#indice" class="px-5 py-2 rounded-full border-2 border-[--brand-yellow] bg-[--brand-yellow] text-black font-bold hover:bg-white hover:border-white transition transform hover:scale-105 shadow-[0_0_15px_rgba(255,222,0,0.5)]">Proyectos</a>
+        <a href="#contacto" class="px-5 py-2 rounded-full border-2 border-[--brand-red] bg-[--brand-red] text-white font-bold hover:bg-white hover:text-black hover:border-white transition transform hover:scale-105">Contacto</a>
     </nav>
-    <!-- Navbar End -->
 
+    <header class="min-h-screen relative flex items-center justify-center overflow-hidden pt-24 pb-12">
+        <svg class="absolute top-10 left-10 w-32 h-32 text-white/10 float-slow" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 100 100">
+            <path d="M10,50 Q25,25 50,50 T90,50 M10,60 Q25,35 50,60 T90,60" />
+        </svg>
+        <svg class="absolute bottom-20 right-10 w-48 h-48 text-[#ffde00]/20 float-fast" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 100 100">
+            <path d="M50,10 L55,45 L90,50 L55,55 L50,90 L45,55 L10,50 L45,45 Z" />
+        </svg>
 
-    <!-- Video Modal Start -->
-    <div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                    <!-- 16:9 aspect ratio -->
-                    <div class="embed-responsive embed-responsive-16by9">
-                        <iframe class="embed-responsive-item" src="" id="video" allowscriptaccess="always"
-                            allow="autoplay"></iframe>
+        <div class="max-w-7xl mx-auto px-6 w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
+
+            <!-- Avatar -->
+            <div class="lg:col-span-5 relative group order-2 lg:order-1 flex justify-center items-center">
+                <div class="absolute inset-0 bg-black translate-x-4 translate-y-4 rounded-[40px] opacity-20 blur-xl"></div>
+                <div class="relative transform -rotate-2 transition duration-500 group-hover:rotate-0 group-hover:scale-105 z-10 w-full max-w-xs sm:max-w-md bg-white p-4 pb-12 shadow-2xl rounded-sm border-2 border-gray-200">
+                    <div class="tape-blue absolute -top-4 left-1/2 -translate-x-1/2 w-24 h-8 z-20 transform rotate-2"></div>
+
+                    <div class="relative w-full aspect-[4/5] rounded-[20px] overflow-hidden border-2 border-gray-100 bg-gradient-to-br from-[#ffde00] via-[#ff3366] to-[#020b24]">
+                        <!-- Se muestra si todavía no subiste img/avatar.jpg -->
+                        <div class="absolute inset-0 flex items-center justify-center text-center">
+                            <span class="font-display font-black text-white text-8xl drop-shadow-[4px_4px_0_black]">TP</span>
+                        </div>
+                        <img src="img/avatar.jpg" alt="Avatar de Tomás Popolizio saludando" class="absolute inset-0 w-full h-full object-cover" onerror="this.remove()">
+                    </div>
+
+                    <div class="absolute bottom-3 left-0 w-full text-center">
+                        <span class="font-hand text-3xl text-black">Tomás</span>
+                    </div>
+                    <!-- Icono Figma decorativo -->
+                    <div class="absolute -right-5 top-10 bg-black w-12 h-12 rounded-xl flex items-center justify-center shadow-lg transform rotate-12" aria-hidden="true">
+                        <svg class="w-6 h-6" viewBox="0 0 38 57">
+                            <path fill="#1abcfe" d="M19 28.5a9.5 9.5 0 1 1 19 0 9.5 9.5 0 0 1-19 0z"/>
+                            <path fill="#0acf83" d="M0 47.5A9.5 9.5 0 0 1 9.5 38H19v9.5a9.5 9.5 0 1 1-19 0z"/>
+                            <path fill="#ff7262" d="M19 0v19h9.5a9.5 9.5 0 1 0 0-19H19z"/>
+                            <path fill="#f24e1e" d="M0 9.5A9.5 9.5 0 0 0 9.5 19H19V0H9.5A9.5 9.5 0 0 0 0 9.5z"/>
+                            <path fill="#a259ff" d="M0 28.5A9.5 9.5 0 0 0 9.5 38H19V19H9.5A9.5 9.5 0 0 0 0 28.5z"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lg:col-span-7 relative order-1 lg:order-2">
+                <div class="relative z-10">
+                    <h1 class="text-7xl sm:text-[140px] leading-[0.8] font-black text-white uppercase tracking-tighter mix-blend-difference">
+                        PORT<br>FOLIO
+                    </h1>
+                    <svg class="absolute top-[10%] left-[45%] w-28 h-28 sm:w-48 sm:h-48 text-[--brand-yellow] float-slow z-20 drop-shadow-lg" aria-hidden="true" viewBox="0 0 100 100" fill="currentColor">
+                        <polygon points="50,0 60,35 95,20 70,50 95,80 60,65 50,100 40,65 5,80 30,50 5,20 40,35" />
+                    </svg>
+                </div>
+
+                <div class="mt-8 sm:mt-12 ml-1 sm:ml-4 flex flex-col items-start gap-4 relative z-30">
+                    <div class="flex items-center gap-3 text-[--brand-yellow]">
+                        <svg class="w-12 h-6 shrink-0" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 50 20">
+                            <path d="M5,10 L45,10 M35,2 L45,10 L35,18" />
+                        </svg>
+                        <p class="font-display text-3xl sm:text-4xl font-bold text-white">Tomás Popolizio</p>
+                    </div>
+
+                    <div class="flex flex-wrap gap-3">
+                        <span class="px-6 py-2 rounded-full bg-[--brand-red] text-white font-black uppercase tracking-widest text-sm shadow-[4px_4px_0px_black] transform -rotate-2">Diseñador UX/UI</span>
+                        <span class="px-6 py-2 rounded-full bg-white text-black font-black uppercase tracking-widest text-sm shadow-[4px_4px_0px_black] transform rotate-1">Product Designer</span>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- Video Modal End -->
+    </header>
 
+    <main>
+    <section id="sobre-mi" class="relative bg-[--paper-white] text-black torn-top torn-bottom mt-10 pb-24 pt-32 z-20 shadow-[0_-20px_50px_rgba(0,0,0,0.5)]">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12">
 
-    <!-- Header Start -->
-    <div class="container-fluid bg-primary d-flex align-items-center mb-5 py-5" id="home" style="min-height: 100vh;">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-5 px-5 pl-lg-0 pb-5 pb-lg-0">
-                    <img class="img-fluid w-100 rounded-circle shadow-sm" src="img/perfil.jpg" alt="">
-                </div>
-                <div class="col-lg-7 text-center text-lg-left">
-                    <h3 class="text-white font-weight-normal mb-3">Hola, Soy </h3>
-                    <h1 class="display-3 text-uppercase text-primary mb-2" style="-webkit-text-stroke: 2px #ffffff;">
-                        Tomas Popolizio</h1>
-                    <h1 class="typed-text-output d-inline font-weight-lighter text-white"></h1>
-                    <div class="typed-text d-none">Tecnico Multimedial</div>
-                    <div class="d-flex align-items-center justify-content-center justify-content-lg-start pt-5">
-                        <a href="" class="btn btn-outline-light mr-5">Descargar CV</a
-                            data-src="https://www.youtube.com/embed/DWRcNpR6Kdc" data-target="#videoModal">
-                        <span></span>
+            <div class="lg:col-span-8 space-y-12">
+                <div class="relative">
+                    <h2 class="text-5xl sm:text-7xl font-black text-[--brand-blue] tracking-tight relative z-10 inline-block font-display pr-12">
+                        ¡Hola! Mucho gusto
+                        <svg class="absolute right-0 -top-8 w-16 h-16 sm:w-20 sm:h-20 text-[--brand-blue]" aria-hidden="true" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="4">
+                            <path d="M50,10 C70,10 90,30 90,50 C90,70 70,90 50,90 C30,90 10,70 10,50 C10,30 30,10 50,10" />
+                            <circle cx="35" cy="40" r="5" fill="currentColor"/>
+                            <circle cx="65" cy="40" r="5" fill="currentColor"/>
+                            <path d="M35,65 Q50,75 65,65" />
+                        </svg>
+                    </h2>
+
+                    <div class="mt-6 text-lg sm:text-xl text-gray-800 font-medium leading-relaxed max-w-3xl space-y-6">
+                        <p>
+                            Soy un diseñador UX/UI apasionado por crear experiencias digitales únicas. Me enfoco en los detalles y la estética, explorando la <strong>investigación profunda</strong>, las <strong>arquitecturas conversacionales</strong> y la <strong>accesibilidad (WCAG)</strong> para comunicar ideas con emoción.
+                        </p>
+                        <p>
+                            Creo en el poder de los datos, el prototipado de alta fidelidad y las diversas perspectivas para lograr los mejores resultados reales en un producto digital.
+                        </p>
                     </div>
                 </div>
             </div>
+
+            <!-- Polaroid -->
+            <div class="lg:col-span-4 relative flex flex-col items-center pt-10 lg:pt-0">
+                <div class="relative group">
+                    <div class="absolute -top-4 left-1/2 -translate-x-1/2 w-28 h-8 tape-blue transform -rotate-3 z-20"></div>
+                    <div class="bg-white p-4 pb-16 shadow-[0_20px_50px_rgba(0,0,0,0.15)] border border-gray-200 transform rotate-3 transition duration-300 group-hover:rotate-6 w-64 sm:w-72">
+                        <div class="w-full aspect-square bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center relative overflow-hidden">
+                            <!-- Se muestra si todavía no subiste img/foto.jpg -->
+                            <span class="text-gray-400 font-bold text-center">Tu Foto<br>Real Aquí</span>
+                            <img src="img/foto.jpg" alt="Foto de Tomás Popolizio" class="absolute inset-0 w-full h-full object-cover" onerror="this.remove()">
+                        </div>
+                        <div class="absolute bottom-3 left-0 w-full text-center">
+                            <span class="font-hand text-3xl text-[--brand-blue]">Tomás / UXUI</span><br>
+                            <span class="text-xs font-bold text-gray-500 uppercase tracking-widest">Buenos Aires, AR</span>
+                        </div>
+                    </div>
+                    <svg class="absolute -bottom-10 -left-10 w-24 h-24 text-[--brand-yellow] -z-10 transform -rotate-12" aria-hidden="true" viewBox="0 0 100 100" fill="currentColor">
+                        <polygon points="50,0 60,35 95,20 70,50 95,80 60,65 50,100 40,65 5,80 30,50 5,20 40,35" />
+                    </svg>
+                </div>
+            </div>
+
         </div>
-    </div>
-    <!-- Header End -->
+    </section>
 
+    <!-- CV / BACKGROUND -->
+    <section class="relative bg-gray-100 text-black torn-top torn-bottom py-32 z-20 shadow-[0_-20px_50px_rgba(0,0,0,0.5)] -mt-10 border-t-8 border-[--brand-red]">
+        <div class="max-w-7xl mx-auto px-6">
 
-    <!-- About Start -->
-    <div class="container-fluid py-5" id="about">
-        <div class="container">
-            <div class="position-relative d-flex align-items-center justify-content-center">
-                <h1 class="display-1 text-uppercase text-white" style="-webkit-text-stroke: 1px #dee2e6;">
-                    información</h1>
-                <h1 class="position-absolute text-uppercase text-primary">Sobre Mi</h1>
+            <div class="text-center mb-16 relative">
+                <span class="font-hand text-[--brand-red] text-3xl sm:text-4xl block md:absolute md:-top-6 md:right-1/4 -rotate-6 md:-rotate-12 mb-2">El camino hasta aquí</span>
+                <h2 class="text-5xl md:text-7xl font-black uppercase text-[--brand-blue] mb-4 font-display">
+                    Background & <span class="bg-[--brand-yellow] px-2 transform rotate-2 inline-block">Skills</span>
+                </h2>
+                <p class="text-xl font-hand text-gray-600 mt-4 max-w-2xl mx-auto">
+                    Una mezcla de base técnica, diseño centrado en el usuario y una profunda empatía desarrollada atendiendo a miles de clientes reales.
+                </p>
             </div>
-            <div class="row align-items-center">
-                <div class="col-lg-5 pb-4 pb-lg-0">
-                    <img class="img-fluid rounded w-100" src="img/Sobre mi.jpg" alt="">
-                </div>
-                <div class="col-lg-7">
-                    <h3 class="mb-4">Tecnico Multimedial</h3>
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam modi enim ea quo asperiores
-                        magnam quisquam doloribus harum quae hic illum repellat sunt cupiditate voluptas tempora illo
-                        id, qui vel!</p>
-                    <div class="row mb-3">
-                        <div class="col-sm-6 py-2">
-                            <h6>Nombre: <span class="text-secondary">Tomas Popolizio</span></h6>
-                        </div>
-                        <div class="col-sm-6 py-2">
-                            <h6>Titulo: <span class="text-secondary">Tecnico Multimedial</span></h6>
-                        </div>
-                        <div class="col-sm-6 py-2">
-                            <h6>Experiencia: <span class="text-secondary">4 años</span></h6>
-                        </div>
-                        <div class="col-sm-6 py-2">
-                            <h6>Telefono: <span class="text-secondary">+54 9 11 4173-1822</span></h6>
-                        </div>
-                        <div class="col-sm-6 py-2">
-                            <h6>Email: <span class="text-secondary">tosapopolizio@gmail.com</span></h6>
-                        </div>
-                        <div class="col-sm-6 py-2">
-                            <h6>Ubicacion: <span class="text-secondary">Buenos Aires - San Martin</span></h6>
-                        </div>
-                    </div>
 
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- About End -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+                <!-- Experiencia -->
+                <div class="relative">
+                    <div class="tape-blue absolute -top-4 left-10 w-24 h-6 transform -rotate-2 z-10"></div>
+                    <div class="bg-white border-4 border-black p-6 sm:p-8 shadow-[8px_8px_0px_rgba(0,0,0,1)] relative h-full">
+                        <h3 class="text-3xl font-black uppercase mb-8 text-[--brand-blue] flex items-center gap-3">
+                            <span class="text-3xl" aria-hidden="true">💼</span> Experiencia
+                        </h3>
 
+                        <div class="space-y-8">
+                            <div class="relative pl-6 border-l-4 border-[--brand-yellow]">
+                                <div class="absolute -left-[14px] top-1 w-6 h-6 bg-[--brand-yellow] rounded-full border-4 border-black"></div>
+                                <span class="bg-black text-white text-xs font-bold uppercase tracking-widest px-2 py-1 rounded-sm">Mar 2026 - Actualidad</span>
+                                <h4 class="text-xl font-black mt-2 leading-tight">Product Designer</h4>
+                                <p class="text-[--brand-red] font-bold text-sm mb-2">Nyxus Studio</p>
+                                <ul class="list-disc list-outside ml-4 text-sm font-medium text-gray-700 space-y-1">
+                                    <li>Desarrollo de identidad visual y landing pages desde investigación hasta diseño final.</li>
+                                    <li>Aplicación de metodologías UX para optimizar conversión y experiencia.</li>
+                                </ul>
+                            </div>
 
-    <!-- Qualification Start -->
-    <div class="container-fluid py-5" id="qualification">
-        <div class="container">
-            <div class="position-relative d-flex align-items-center justify-content-center">
-                <h1 class="display-1 text-uppercase text-white" style="-webkit-text-stroke: 1px #dee2e6;">Formación</h1>
-                <h1 class="position-absolute text-uppercase text-primary">Educacion & Experiencia</h1>
-            </div>
-            <div class="row align-items-center">
-                <div class="col-lg-6">
-                    <h3 class="mb-4">Mi Educacion</h3>
-                    <div class="border-left border-primary pt-2 pl-4 ml-2">
-                        <div class="position-relative mb-4">
-                            <i class="far fa-dot-circle text-primary position-absolute"
-                                style="top: 2px; left: -32px;"></i>
-                            <h5 class="font-weight-bold mb-1">Instituto La Salle San Martin</h5>
-                            <p class="mb-2"><strong>Tecnicatura en Multimedios</strong> | <small>2019 - 2023</small></p>
-                            <p>Estudie en el Instituto La Salle San Martin por 4 años, me centralice en la Tecnicatura
-                                de Multimedios.Que abarca 4 ejes fundamentales , Fotografia - Diseño Grafico - Pagina
-                                Web - Animacion. </p>
-                        </div>
-                        <div class="position-relative mb-4">
-                            <i class="far fa-dot-circle text-primary position-absolute"
-                                style="top: 2px; left: -32px;"></i>
-                            <h5 class="font-weight-bold mb-1">Junior Achievement Argentina</h5>
-                            <p class="mb-2"><strong>Curso de Programacion</strong> | <small>2023 - 2023</small></p>
-                            <p>En mi ulitmo año de Tecnicatura realize una curso de Programacion sobre Pagina Web , en
-                                el cual nos enseñaron conocimientos basicos sobre HTML , CSS y Bootstrap.</p>
-                        </div>
-                        <div class="position-relative mb-4">
-                            <i class="far fa-dot-circle text-primary position-absolute"
-                                style="top: 2px; left: -32px;"></i>
-                            <h5 class="font-weight-bold mb-1">...</h5>
-                            <p class="mb-2"><strong>...</strong> | <small>...</small></p>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita, fugiat qui reiciendis
-                                maiores non doloribus quo, atque, est alias illum placeat. Aliquam, commodi rem. Illum
-                                dolores esse nobis numquam. Suscipit!</p>
+                            <div class="relative pl-6 border-l-4 border-gray-300">
+                                <div class="absolute -left-[14px] top-1 w-6 h-6 bg-white rounded-full border-4 border-black"></div>
+                                <span class="bg-gray-200 text-gray-700 text-xs font-bold uppercase tracking-widest px-2 py-1 rounded-sm">Dic 2025 - Actualidad</span>
+                                <h4 class="text-xl font-black mt-2 leading-tight">Rep. de Atención al Cliente</h4>
+                                <p class="text-gray-500 font-bold text-sm mb-2">Movistar (Call Center)</p>
+                                <ul class="list-disc list-outside ml-4 text-sm font-medium text-gray-700 space-y-1">
+                                    <li>Gestión de casos y resolución de problemas.</li>
+                                    <li>Desarrollo de fuerte <span class="bg-[--brand-yellow] px-1 font-bold text-black">empatía y escucha activa</span> (habilidades clave para UX Research).</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6">
-                    <h3 class="mb-4">Mi Experiencia</h3>
-                    <div class="border-left border-primary pt-2 pl-4 ml-2">
-                        <div class="position-relative mb-4">
-                            <i class="far fa-dot-circle text-primary position-absolute"
-                                style="top: 2px; left: -32px;"></i>
-                            <h5 class="font-weight-bold mb-1">Fotografia</h5>
-                            <p class="mb-2"><strong>Instituto La Salle San Martin</strong> | <small>2023 - 2023</small>
-                            </p>
-                            <p>En la mi ultimo de año de Secundario tuve la oportunidad de hacer Coberturas Fotograficas
-                                dentro del Instituto, para Nivel Inicial - Nivel Primario - Nivel Secundario.</p>
-                        </div>
-                        <div class="position-relative mb-4">
-                            <i class="far fa-dot-circle text-primary position-absolute"
-                                style="top: 2px; left: -32px;"></i>
-                            <h5 class="font-weight-bold mb-1">Edicion De Videos</h5>
-                            <p class="mb-2"><strong>Instituto La Salle San Martin</strong> | <small>2023 - 2023</small>
-                            </p>
-                            <p>En mis ulitmos 2 años de secundario (Sexto y Septimo), tuve la materia de "Realizacion
-                                Audio Visual" , lo cual uno de los programas que aprendi a usar fue PremierPro. Dando
-                                conocimientos para poder editar videos.
-                            </p>
-                        </div>
-                        <div class="position-relative mb-4">
-                            <i class="far fa-dot-circle text-primary position-absolute"
-                                style="top: 2px; left: -32px;"></i>
-                            <h5 class="font-weight-bold mb-1">Programacion</h5>
-                            <p class="mb-2"><strong>Por mi Propia Cuenta</strong> | <small>2023 - 2023</small>
-                            </p>
-                            <p>Aprendi los conocimientos necesarios sobre el armado de una Pagina Web ( HTML - CSS -
-                                JAVASCRIPT - BOOTSTRAP ) mediante Youtube, el canal que mas me hizo entende todo fue
-                                "SoyDalto".</p>
+
+                <!-- Educación y Skills -->
+                <div class="space-y-12">
+                    <div class="relative group">
+                        <div class="tape-yellow absolute -top-4 right-10 w-24 h-6 transform rotate-3 z-10"></div>
+                        <div class="bg-[--brand-blue] text-white border-4 border-black p-6 sm:p-8 shadow-[8px_8px_0px_rgba(0,0,0,1)] transform rotate-1 transition hover:rotate-0">
+                            <h3 class="text-3xl font-black uppercase mb-8 text-[--brand-yellow] flex items-center gap-3">
+                                <span class="text-3xl" aria-hidden="true">🎓</span> Formación
+                            </h3>
+                            <div class="space-y-6">
+                                <div>
+                                    <h4 class="text-lg font-black text-white">Carrera Diseño UX/UI</h4>
+                                    <p class="text-[--brand-yellow] text-sm font-bold">Coderhouse (2024 - 2026)</p>
+                                    <p class="text-xs text-gray-300 mt-1">UX Avanzado, UX Research, UX Writing.</p>
+                                </div>
+                                <div class="border-t border-white/20 pt-4">
+                                    <h4 class="text-lg font-black text-white">Técnico en Multimedios</h4>
+                                    <p class="text-[--brand-yellow] text-sm font-bold">Instituto La Salle San Martín (2019 - 2023)</p>
+                                    <p class="text-xs text-gray-300 mt-1">Bases en comunicación audiovisual y desarrollo frontend.</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Qualification End -->
 
-
-    <!-- Skill Start -->
-    <div class="container-fluid py-5" id="skill">
-        <div class="container">
-            <div class="position-relative d-flex align-items-center justify-content-center">
-                <h1 class="display-1 text-uppercase text-white" style="-webkit-text-stroke: 1px #dee2e6;">Habilidades
-                </h1>
-                <h1 class="position-absolute text-uppercase text-primary">Mis Habilidades</h1>
-            </div>
-            <div class="row align-items-center">
-                <div class="col-md-6">
-                    <div class="skill mb-4">
-                        <div class="d-flex justify-content-between">
-                            <h6 class="font-weight-bold">HTML</h6>
-
-                        </div>
-                        <div class="progress">
-                            <div class="progress-bar bg-primary" role="progressbar" aria-valuenow="100"
-                                aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                    </div>
-                    <div class="skill mb-4">
-                        <div class="d-flex justify-content-between">
-                            <h6 class="font-weight-bold">CSS</h6>
-
-                        </div>
-                        <div class="progress">
-                            <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="90" aria-valuemin="0"
-                                aria-valuemax="100"></div>
-                        </div>
-                    </div>
-                    <div class="skill mb-4">
-                        <div class="d-flex justify-content-between">
-                            <h6 class="font-weight-bold">JavaScript</h6>
-
-                        </div>
-                        <div class="progress">
-                            <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="75" aria-valuemin="0"
-                                aria-valuemax="100"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="skill mb-4">
-                        <div class="d-flex justify-content-between">
-                            <h6 class="font-weight-bold">Premier Pro</h6>
-
-                        </div>
-                        <div class="progress">
-                            <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="90" aria-valuemin="0"
-                                aria-valuemax="100"></div>
-                        </div>
-                    </div>
-                    <div class="skill mb-4">
-                        <div class="d-flex justify-content-between">
-                            <h6 class="font-weight-bold">Photoshop</h6>
-
-                        </div>
-                        <div class="progress">
-                            <div class="progress-bar bg-dark" role="progressbar" aria-valuenow="50" aria-valuemin="0"
-                                aria-valuemax="100"></div>
-                        </div>
-                    </div>
-                    <div class="skill mb-4">
-                        <div class="d-flex justify-content-between">
-                            <h6 class="font-weight-bold">Corel Draw</h6>
-
-                        </div>
-                        <div class="progress">
-                            <div class="progress-bar bg-info" role="progressbar" aria-valuenow="90" aria-valuemin="0"
-                                aria-valuemax="100"></div>
+                    <div class="bg-white border-4 border-black p-6 shadow-[8px_8px_0px_rgba(0,0,0,1)] transform -rotate-1">
+                        <h3 class="text-xl font-black uppercase mb-4 text-black">Habilidades & Tools</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-black text-white px-3 py-1 rounded-sm text-sm font-bold border-2 border-black">UX Research</span>
+                            <span class="bg-[--brand-red] text-white px-3 py-1 rounded-sm text-sm font-bold border-2 border-black">UI Design</span>
+                            <span class="bg-black text-white px-3 py-1 rounded-sm text-sm font-bold border-2 border-black">UX Writing</span>
+                            <span class="bg-[--brand-blue] text-white px-3 py-1 rounded-sm text-sm font-bold border-2 border-black">Figma</span>
+                            <span class="bg-white text-black px-3 py-1 rounded-sm text-sm font-bold border-2 border-black border-dashed">Empatía</span>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- Skill End -->
+    </section>
 
+    <!-- ÍNDICE DE PROYECTOS -->
+    <section id="indice" class="relative bg-[--brand-blue] text-white pt-24 pb-32 z-10 -mt-10 torn-top">
+        <div class="max-w-6xl mx-auto px-6 relative z-10">
+            <h2 class="text-4xl sm:text-5xl font-black uppercase tracking-tight mb-16 text-center text-white/90">
+                Selección de <span class="text-[--brand-yellow]">Proyectos</span>
+            </h2>
 
-    <!-- Services Start -->
-    <div class="container-fluid pt-5" id="service">
-        <div class="container">
-            <div class="position-relative d-flex align-items-center justify-content-center">
-                <h1 class="display-1 text-uppercase text-white" style="-webkit-text-stroke: 1px #dee2e6;">Funciones</h1>
-                <h1 class="position-absolute text-uppercase text-primary">Mis Servicios</h1>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
+                <a href="#proyecto-1" class="group block relative">
+                    <span class="block text-8xl font-hand text-white/20 group-hover:text-[--brand-yellow] transition duration-300 mb-2 transform group-hover:scale-110">01</span>
+                    <h3 class="text-2xl font-black uppercase">Diseño UX/UI Avanzado</h3>
+                    <p class="text-[--brand-yellow] font-bold text-sm mt-2">Flujo Checkout (PedidosYa)</p>
+                    <div class="w-12 h-1 bg-[--brand-red] mx-auto mt-4 transform scale-x-0 group-hover:scale-x-100 transition duration-300"></div>
+                </a>
+
+                <a href="#proyecto-2" class="group block relative">
+                    <span class="block text-8xl font-hand text-white/20 group-hover:text-[--brand-yellow] transition duration-300 mb-2 transform group-hover:scale-110">02</span>
+                    <h3 class="text-2xl font-black uppercase">Investigación UX</h3>
+                    <p class="text-[--brand-yellow] font-bold text-sm mt-2">App de Gimnasio (Fitness)</p>
+                    <div class="w-12 h-1 bg-[--brand-red] mx-auto mt-4 transform scale-x-0 group-hover:scale-x-100 transition duration-300"></div>
+                </a>
+
+                <a href="#proyecto-3" class="group block relative">
+                    <span class="block text-8xl font-hand text-white/20 group-hover:text-[--brand-yellow] transition duration-300 mb-2 transform group-hover:scale-110">03</span>
+                    <h3 class="text-2xl font-black uppercase">UX Writing & Content</h3>
+                    <p class="text-[--brand-yellow] font-bold text-sm mt-2">FitPulse App (SaaS)</p>
+                    <div class="w-12 h-1 bg-[--brand-red] mx-auto mt-4 transform scale-x-0 group-hover:scale-x-100 transition duration-300"></div>
+                </a>
             </div>
-            <div class="row pb-3">
-                <div class="col-lg-4 col-md-6 text-center mb-5">
-                    <div class="d-flex align-items-center justify-content-center mb-4">
-                        <i class="fa fa-2x fa-laptop service-icon bg-primary text-white mr-3"></i>
-                        <h4 class="font-weight-bold m-0">Web Design</h4>
-                    </div>
-                    <p>Justo sit justo eos amet tempor amet clita amet ipsum eos elitr. Amet lorem lorem lorem est amet
-                        labore eirmod erat clita</p>
-                    <a class="border-bottom border-primary text-decoration-none" href="">Read More</a>
+        </div>
+    </section>
+
+    <!-- PROYECTO 1 -->
+    <section id="proyecto-1" class="relative bg-white text-black py-32 z-20 torn-top shadow-[0_-20px_50px_rgba(0,0,0,0.3)] overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6">
+
+            <div class="flex flex-col items-center text-center gap-4 mb-16 relative">
+                <div class="tape-red px-4 py-1 text-white font-black uppercase tracking-widest text-sm transform -rotate-2 shadow-lg">
+                    01. Diseño UX/UI Avanzado
                 </div>
-                <div class="col-lg-4 col-md-6 text-center mb-5">
-                    <div class="d-flex align-items-center justify-content-center mb-4">
-                        <i class="fa fa-2x fa-laptop-code service-icon bg-primary text-white mr-3"></i>
-                        <h4 class="font-weight-bold m-0">Web Development</h4>
+                <h2 class="text-5xl md:text-7xl font-black uppercase text-[--brand-blue] drop-shadow-md">
+                    Rediseño <span class="text-[--brand-red]">PedidosYa</span>
+                </h2>
+                <p class="text-xl font-hand text-gray-600 mt-2 max-w-2xl">
+                    Optimización del checkout, simplificación financiera y reducción de sobrecarga cognitiva.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+
+                <div class="lg:col-span-6 space-y-12">
+
+                    <!-- Contexto -->
+                    <div class="bg-gray-50 border-4 border-black p-6 shadow-[8px_8px_0px_rgba(0,0,0,1)]">
+                        <h3 class="text-2xl font-black uppercase text-[--brand-blue] mb-4">01. El Problema</h3>
+                        <ul class="space-y-4 font-medium text-sm">
+                            <li class="flex gap-3"><span class="text-[--brand-red] font-black text-xl">1</span> <p><strong>Sobrecarga Cognitiva:</strong> Exceso de banners promocionales ("Sumate a Plus") que desvían la atención.</p></li>
+                            <li class="flex gap-3"><span class="text-[--brand-red] font-black text-xl">2</span> <p><strong>Opacidad Financiera:</strong> Falta de transparencia en el desglose de tarifas de servicio al final.</p></li>
+                            <li class="flex gap-3"><span class="text-[--brand-red] font-black text-xl">3</span> <p><strong>Fricción Operativa:</strong> Cambiar métodos de pago requiere demasiados pasos innecesarios.</p></li>
+                        </ul>
                     </div>
-                    <p>Justo sit justo eos amet tempor amet clita amet ipsum eos elitr. Amet lorem lorem lorem est amet
-                        labore eirmod erat clita</p>
-                    <a class="border-bottom border-primary text-decoration-none" href="">Read More</a>
+
+                    <!-- Soluciones -->
+                    <div class="bg-[#020b24] text-white border-4 border-black p-6 shadow-[8px_8px_0px_rgba(0,0,0,1)] transform rotate-1">
+                        <h3 class="text-2xl font-black uppercase text-[--brand-yellow] mb-4">04. Decisiones de Diseño</h3>
+                        <div class="space-y-4">
+                            <div class="border border-white/20 p-3 rounded bg-white/5">
+                                <h4 class="font-bold text-[--brand-red]">1. Limpieza UI Radical</h4>
+                                <p class="text-xs text-gray-300 mt-1">Eliminación total de banners cruzados en la pantalla crítica de cobro.</p>
+                            </div>
+                            <div class="border border-white/20 p-3 rounded bg-white/5">
+                                <h4 class="font-bold text-[--brand-red]">2. Tooltips Interactivos</h4>
+                                <p class="text-xs text-gray-300 mt-1">Iconos de ayuda contextual para explicar el origen de las tarifas.</p>
+                            </div>
+                            <div class="border border-white/20 p-3 rounded bg-white/5">
+                                <h4 class="font-bold text-[--brand-red]">3. Selector de Tarjetas</h4>
+                                <p class="text-xs text-gray-300 mt-1">Carrusel horizontal in-line para cambio rápido en un solo tap.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Flow comparativo -->
+                    <div>
+                        <h4 class="text-2xl font-black uppercase mb-6 flex items-center gap-2">
+                            <span class="bg-black text-white px-2 py-1 rounded">06</span> Arquitectura
+                        </h4>
+                        <div class="space-y-6 font-bold text-sm">
+                            <div class="bg-gray-100 p-4 border border-gray-300 rounded-lg relative">
+                                <span class="text-[--brand-red] uppercase tracking-widest text-[10px] absolute -top-3 bg-white px-2 border border-gray-300">Antes (3 Pasos + Fricción)</span>
+                                <div class="flex flex-wrap gap-2 items-center mt-2">
+                                    <span class="bg-black text-white px-3 py-1 rounded">Revisar</span> →
+                                    <span class="bg-[--brand-red] text-white px-3 py-1 rounded animate-pulse">Pop-Up Plus</span> →
+                                    <span class="bg-black text-white px-3 py-1 rounded">Tarjetas</span>
+                                </div>
+                            </div>
+                            <div class="bg-emerald-50 p-4 border-2 border-emerald-400 rounded-lg shadow-[4px_4px_0px_#34d399] relative">
+                                <span class="text-emerald-700 uppercase tracking-widest text-[10px] absolute -top-3 bg-white px-2 border border-emerald-400">Ahora (2 Pasos Directos)</span>
+                                <div class="flex flex-wrap gap-4 items-center mt-2">
+                                    <span class="bg-black text-white px-4 py-2 rounded text-base">1. Carrito</span>
+                                    <span class="text-xl">→</span>
+                                    <span class="bg-emerald-600 text-white px-4 py-2 rounded text-base shadow-inner">2. Pago Seguro</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
-                <div class="col-lg-4 col-md-6 text-center mb-5">
-                    <div class="d-flex align-items-center justify-content-center mb-4">
-                        <i class="fab fa-2x fa-android service-icon bg-primary text-white mr-3"></i>
-                        <h4 class="font-weight-bold m-0">Apps Design</h4>
+
+                <!-- Mockups PedidosYa -->
+                <div class="lg:col-span-6 relative min-h-[640px] sm:min-h-[700px] flex items-center justify-center mt-16 lg:mt-0">
+
+                    <div class="absolute z-10 transform -rotate-6 -translate-x-8 sm:-translate-x-12 -translate-y-6 sm:translate-y-0 bg-white p-3 shadow-2xl border border-gray-200 w-56 sm:w-64 rounded-3xl">
+                        <div class="tape-blue absolute -top-4 left-10 w-16 h-6 z-30"></div>
+                        <div class="w-full h-[400px] sm:h-[450px] bg-gray-50 border-4 border-black rounded-2xl overflow-hidden flex flex-col">
+                            <div class="bg-[--brand-red] text-white font-bold p-3 text-sm flex justify-between items-center">
+                                Mi Carrito <span class="bg-white/20 px-2 py-1 rounded text-xs">2 Items</span>
+                            </div>
+                            <div class="p-4 flex-1">
+                                <div class="bg-white p-3 rounded shadow-sm border border-gray-100 mb-2">
+                                    <span class="font-bold text-xs">1x Doble Bacon</span><br>
+                                    <span class="font-black">$12.500</span>
+                                </div>
+                                <div class="bg-emerald-50 text-emerald-700 text-xs font-bold p-2 border border-emerald-200 text-center rounded mt-4">
+                                    ✓ Compra libre de publicidad
+                                </div>
+                            </div>
+                            <div class="p-3 bg-white border-t border-gray-200">
+                                <div class="w-full bg-[--brand-red] text-white font-black py-3 rounded-lg text-xs uppercase text-center">Ir a Pagar ($14.600)</div>
+                            </div>
+                        </div>
+                        <span class="font-hand text-xl absolute -bottom-8 left-4 text-black">A: Limpieza UI</span>
                     </div>
-                    <p>Justo sit justo eos amet tempor amet clita amet ipsum eos elitr. Amet lorem lorem lorem est amet
-                        labore eirmod erat clita</p>
-                    <a class="border-bottom border-primary text-decoration-none" href="">Read More</a>
+
+                    <div class="absolute z-20 transform rotate-6 translate-x-10 sm:translate-x-16 translate-y-24 bg-white p-3 shadow-[0_25px_50px_rgba(0,0,0,0.4)] border border-gray-200 w-56 sm:w-64 rounded-3xl">
+                        <div class="tape-yellow absolute -top-4 right-10 w-20 h-6 z-30"></div>
+                        <div class="w-full h-[400px] sm:h-[450px] bg-gray-50 border-4 border-black rounded-2xl overflow-hidden flex flex-col">
+                            <div class="bg-black text-white font-bold p-3 text-sm flex items-center gap-2">
+                                <svg class="w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                                Checkout Seguro
+                            </div>
+                            <div class="p-4 flex-1">
+                                <span class="text-[10px] font-bold text-gray-500 uppercase">Método de pago</span>
+                                <div class="flex gap-2 mb-4 mt-2">
+                                    <div class="border-2 border-[--brand-red] rounded p-2 flex-1 text-center bg-white shadow">
+                                        <span class="text-[10px] font-bold text-black">Visa ••39</span>
+                                    </div>
+                                    <div class="border border-gray-300 rounded p-2 flex-1 text-center bg-white opacity-50">
+                                        <span class="text-[10px] font-bold text-gray-500">Master ••22</span>
+                                    </div>
+                                </div>
+                                <div class="bg-white p-3 rounded shadow-sm border border-gray-100 space-y-2">
+                                    <span class="text-[10px] font-bold text-gray-500 uppercase border-b pb-1 block">Resumen Final</span>
+                                    <div class="flex justify-between text-xs pt-2"><span class="text-gray-500">Subtotal</span><span class="font-bold">$14.600</span></div>
+                                    <div tabindex="0" class="flex justify-between text-xs text-[--brand-red] font-bold border-b border-dashed border-[--brand-red] pb-1 cursor-help relative group">
+                                        <span>Tarifa Servicio (?)</span><span>$350</span>
+                                        <div role="tooltip" class="absolute -top-10 left-0 bg-black text-white text-[10px] p-2 rounded hidden group-hover:block group-focus:block w-40 z-50">Costo operativo de la app.</div>
+                                    </div>
+                                    <div class="flex justify-between text-sm font-black pt-2"><span>Total a Pagar</span><span>$15.800</span></div>
+                                </div>
+                            </div>
+                            <div class="p-3 bg-white border-t border-gray-200">
+                                <div class="w-full bg-black text-white font-black py-3 rounded-lg text-xs uppercase flex justify-center items-center gap-2">
+                                    🛡️ Pagar Seguro
+                                </div>
+                            </div>
+                        </div>
+                        <span class="font-hand text-xl absolute -bottom-8 right-4 text-black">B: Pago Transparente</span>
+                    </div>
+
+                    <!-- Tarjeta de impacto -->
+                    <div class="absolute -top-14 sm:-top-10 right-0 bg-white border-2 border-black p-3 sm:p-4 shadow-[4px_4px_0px_black] transform rotate-6 sm:rotate-12 z-30">
+                        <span class="block text-xs font-bold uppercase tracking-widest text-gray-500">Impacto Estimado</span>
+                        <div class="text-2xl sm:text-3xl font-black text-emerald-600">+8% <span class="text-sm text-black">Conversión</span></div>
+                        <div class="text-2xl sm:text-3xl font-black text-[--brand-red]">-15% <span class="text-sm text-black">Abandono</span></div>
+                    </div>
                 </div>
-                <div class="col-lg-4 col-md-6 text-center mb-5">
-                    <div class="d-flex align-items-center justify-content-center mb-4">
-                        <i class="fab fa-2x fa-apple service-icon bg-primary text-white mr-3"></i>
-                        <h4 class="font-weight-bold m-0">Apps Development</h4>
-                    </div>
-                    <p>Justo sit justo eos amet tempor amet clita amet ipsum eos elitr. Amet lorem lorem lorem est amet
-                        labore eirmod erat clita</p>
-                    <a class="border-bottom border-primary text-decoration-none" href="">Read More</a>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- PROYECTO 2 -->
+    <section id="proyecto-2" class="relative bg-[--brand-blue] text-white py-32 z-10 overflow-hidden">
+
+        <svg class="absolute top-1/2 left-0 w-full h-full opacity-10 pointer-events-none transform -translate-y-1/2" aria-hidden="true" viewBox="0 0 1000 1000" fill="none">
+            <circle cx="500" cy="500" r="400" stroke="var(--brand-yellow)" stroke-width="40" stroke-dasharray="10 20"/>
+        </svg>
+
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+
+            <div class="text-center mb-16 relative">
+                <span class="font-hand text-[--brand-yellow] text-3xl sm:text-4xl block md:absolute md:-top-6 md:right-1/4 -rotate-6 md:-rotate-12 mb-2">¡Investigación Pura!</span>
+                <h2 class="text-5xl md:text-7xl font-black uppercase text-white mb-4">
+                    App de <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#ffde00] to-orange-400">Gimnasio</span>
+                </h2>
+                <div class="tape-blue mx-auto w-48 h-8 px-4 py-1 text-white font-black uppercase tracking-widest text-sm flex items-center justify-center transform rotate-1 shadow-lg">
+                    02. UX Research
                 </div>
-                <div class="col-lg-4 col-md-6 text-center mb-5">
-                    <div class="d-flex align-items-center justify-content-center mb-4">
-                        <i class="fa fa-2x fa-search service-icon bg-primary text-white mr-3"></i>
-                        <h4 class="font-weight-bold m-0">SEO</h4>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+
+                <div class="lg:col-span-6 relative space-y-8">
+                    <svg class="absolute -top-10 -left-4 sm:-left-10 w-32 h-32 text-white/10" aria-hidden="true" fill="currentColor" viewBox="0 0 32 32">
+                        <path d="M10 8c-3.3 0-6 2.7-6 6v10h10V14H8c0-1.1.9-2 2-2h4V8h-4zm18 0c-3.3 0-6 2.7-6 6v10h10V14h-6c0-1.1.9-2 2-2h4V8h-4z"/>
+                    </svg>
+
+                    <div>
+                        <h3 class="text-3xl font-black text-[--brand-yellow] mb-6">El Gran Hallazgo: "Fricción Temporal"</h3>
+                        <blockquote class="text-2xl font-hand leading-relaxed bg-black/40 p-6 sm:p-8 border-l-4 border-[--brand-yellow] rounded-r-2xl backdrop-blur-sm shadow-xl">
+                            "A veces estoy con las manos transpiradas o con vendas, y tener que escribir el nombre del ejercicio en el buscador de la app me saca las ganas. Termino usando un bloc de notas..."
+                        </blockquote>
                     </div>
-                    <p>Justo sit justo eos amet tempor amet clita amet ipsum eos elitr. Amet lorem lorem lorem est amet
-                        labore eirmod erat clita</p>
-                    <a class="border-bottom border-primary text-decoration-none" href="">Read More</a>
+
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="border border-white/20 rounded-xl p-4 bg-white/5">
+                            <span class="block text-4xl font-black text-[--brand-yellow] mb-1">75%</span>
+                            <span class="text-xs font-bold uppercase tracking-widest text-gray-300">Pierden tiempo buscando ejercicios en apps.</span>
+                        </div>
+                        <div class="border border-white/20 rounded-xl p-4 bg-white/5">
+                            <span class="block text-xl font-black text-[--brand-yellow] mb-1">Metodología</span>
+                            <span class="text-xs font-bold uppercase tracking-widest text-gray-300">Entrevistas 1:1 in-situ & Encuestas Cuantitativas.</span>
+                        </div>
+                    </div>
+
+                    <div class="bg-white/10 p-6 rounded-xl border border-white/20">
+                        <h4 class="font-bold mb-2 uppercase tracking-widest text-sm text-[--brand-yellow]">La Hipótesis</h4>
+                        <p class="text-sm font-medium">Si proporcionamos una interfaz de "registro con un solo toque" (Thumb Zone) aumentará la retención durante la sesión, ya que los usuarios priorizan el enfoque físico por sobre la analítica detallada.</p>
+                    </div>
                 </div>
-                <div class="col-lg-4 col-md-6 text-center mb-5">
-                    <div class="d-flex align-items-center justify-content-center mb-4">
-                        <i class="fa fa-2x fa-edit service-icon bg-primary text-white mr-3"></i>
-                        <h4 class="font-weight-bold m-0">Content Creating</h4>
+
+                <div class="lg:col-span-6 relative flex justify-center items-center py-8">
+
+                    <div class="absolute inset-0 bg-[--brand-yellow] rounded-3xl transform rotate-6 opacity-20"></div>
+
+                    <!-- Mockup celular Thumb Zone -->
+                    <div class="relative bg-[#0f172a] border-[8px] border-black rounded-[2.5rem] w-64 sm:w-72 h-[520px] sm:h-[550px] shadow-[0_0_50px_rgba(255,222,0,0.2)] overflow-hidden z-20 flex flex-col">
+
+                        <div class="p-5 border-b border-white/10 flex justify-between items-center">
+                            <span class="font-bold text-lg">Press de Banca</span>
+                            <span class="bg-[--brand-yellow] text-black text-[10px] font-black px-2 py-1 rounded">Serie 3/4</span>
+                        </div>
+
+                        <div class="p-5 text-center bg-white/5 border-b border-white/5">
+                            <span class="text-[10px] text-gray-400 uppercase tracking-widest">Sugerencia Inteligente</span>
+                            <div class="font-mono text-sm text-[--brand-yellow] font-bold mt-1">Última vez: 60 kg x 10 reps</div>
+                        </div>
+
+                        <div class="flex-1 p-5 flex flex-col justify-end gap-4 pb-8">
+
+                            <div class="bg-black/50 p-2 rounded-2xl flex justify-between items-center border border-white/10 shadow-inner">
+                                <div class="w-12 h-12 bg-white/5 rounded-xl flex items-center justify-center font-bold text-2xl">-</div>
+                                <div class="text-center font-black text-4xl">60<span class="text-xs font-normal text-gray-400 ml-1">kg</span></div>
+                                <div class="w-12 h-12 bg-[--brand-yellow] text-black rounded-xl flex items-center justify-center font-bold text-2xl">+</div>
+                            </div>
+
+                            <div class="bg-black/50 p-2 rounded-2xl flex justify-between items-center border border-white/10 shadow-inner">
+                                <div class="w-12 h-12 bg-white/5 rounded-xl flex items-center justify-center font-bold text-2xl">-</div>
+                                <div class="text-center font-black text-4xl">10<span class="text-xs font-normal text-gray-400 ml-1">rep</span></div>
+                                <div class="w-12 h-12 bg-[--brand-yellow] text-black rounded-xl flex items-center justify-center font-bold text-2xl">+</div>
+                            </div>
+
+                            <div class="w-full bg-white text-black font-black uppercase tracking-widest py-4 rounded-xl mt-4 text-center shadow-[0_4px_15px_rgba(255,255,255,0.2)]">Completar Serie</div>
+                        </div>
                     </div>
-                    <p>Justo sit justo eos amet tempor amet clita amet ipsum eos elitr. Amet lorem lorem lorem est amet
-                        labore eirmod erat clita</p>
-                    <a class="border-bottom border-primary text-decoration-none" href="">Read More</a>
+
+                    <!-- Anotaciones -->
+                    <div class="absolute top-1/4 right-0 sm:-right-10 w-28 sm:w-36 font-hand text-lg sm:text-xl text-[--brand-yellow] transform rotate-12 z-30 bg-black/70 p-2 rounded backdrop-blur-sm border border-[--brand-yellow]">
+                        <svg class="w-8 h-8 mb-2 transform -scale-x-100" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+                        Autocompletado
+                    </div>
+                    <div class="absolute bottom-32 left-0 sm:-left-16 w-32 sm:w-40 font-hand text-lg sm:text-xl text-white transform -rotate-6 z-30 text-right bg-black/70 p-2 rounded backdrop-blur-sm border border-white/30">
+                        Botones + / - para la "Thumb Zone"
+                        <svg class="w-8 h-8 mt-2 ml-auto" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path d="M5 10l7-7m0 0l7 7m-7-7v18"></path></svg>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- PROYECTO 3 -->
+    <section id="proyecto-3" class="relative bg-[--brand-yellow] text-black torn-top py-32 z-20 shadow-[0_-20px_50px_rgba(0,0,0,0.3)]">
+
+        <div class="max-w-7xl mx-auto px-6">
+
+            <div class="flex flex-col items-center text-center gap-4 mb-16 relative">
+                <div class="tape-blue px-4 py-1 text-white font-black uppercase tracking-widest text-sm transform rotate-2 shadow-lg">
+                    03. Content Design & UX Writing
+                </div>
+                <h2 class="text-5xl md:text-7xl font-black uppercase text-white drop-shadow-[0_4px_0_rgba(0,0,0,1)] [-webkit-text-stroke:2px_black]">
+                    FitPulse App
+                </h2>
+                <p class="text-xl font-hand text-gray-800 mt-2 max-w-2xl bg-white/50 backdrop-blur-sm p-4 rounded-xl border border-black border-dashed">
+                    Sistema integral de contenido, voz, optimización de flujos y handoff técnico (JSON) para SaaS de fitness.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+
+                <div class="lg:col-span-5 space-y-8 flex flex-col">
+
+                    <!-- Métricas -->
+                    <div class="bg-white border-4 border-black p-6 shadow-[8px_8px_0px_rgba(0,0,0,1)] flex-1">
+                        <h3 class="text-2xl font-black uppercase text-[--brand-blue] mb-6 border-b-4 border-black pb-2">Resultados Maze Test</h3>
+                        <div class="space-y-6">
+                            <div>
+                                <div class="flex justify-between items-end mb-1">
+                                    <span class="font-bold text-sm uppercase tracking-widest">Direct Success Rate</span>
+                                    <span class="text-3xl font-black text-emerald-600">87%</span>
+                                </div>
+                                <div class="w-full bg-gray-200 h-3 rounded-full overflow-hidden border border-black">
+                                    <div class="bg-emerald-500 h-full" style="width: 87%"></div>
+                                </div>
+                                <p class="text-xs font-bold text-gray-600 mt-1">Salto del 58% al 87% tras reescribir CTAs ("Confirmar reserva").</p>
+                            </div>
+
+                            <div>
+                                <div class="flex justify-between items-end mb-1">
+                                    <span class="font-bold text-sm uppercase tracking-widest">Misclick Rate</span>
+                                    <span class="text-3xl font-black text-[--brand-blue]">9%</span>
+                                </div>
+                                <div class="w-full bg-gray-200 h-3 rounded-full overflow-hidden border border-black">
+                                    <div class="bg-[--brand-blue] h-full" style="width: 9%"></div>
+                                </div>
+                                <p class="text-xs font-bold text-gray-600 mt-1">Descendió desde un 34% al diferenciar etiquetas estáticas de botones.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Matriz de voz y tono -->
+                    <div class="bg-[#020b24] text-white border-4 border-black p-6 shadow-[8px_8px_0px_rgba(0,0,0,1)] flex-1 relative transform rotate-1">
+                        <div class="tape-yellow absolute -top-4 right-10 w-16 h-6"></div>
+                        <h3 class="text-xl font-black uppercase mb-4 text-[--brand-yellow]">Matriz de Tono Definida</h3>
+                        <ul class="space-y-4 text-sm font-medium">
+                            <li class="flex items-start gap-3 bg-white/5 p-3 rounded">
+                                <span class="text-emerald-400 text-xl" aria-hidden="true">⚡</span>
+                                <div><strong class="block text-emerald-400 uppercase">Enérgico (Home)</strong> Verbos imperativos al frente. <em>"Reservá tu clase"</em></div>
+                            </li>
+                            <li class="flex items-start gap-3 bg-white/5 p-3 rounded">
+                                <span class="text-blue-400 text-xl" aria-hidden="true">🤝</span>
+                                <div><strong class="block text-blue-400 uppercase">Empático (Errores)</strong> Prohibido usar "Error". Ofrecer 2 salidas. <em>"Clase sin cupos"</em></div>
+                            </li>
+                            <li class="flex items-start gap-3 bg-white/5 p-3 rounded">
+                                <span class="text-purple-400 text-xl" aria-hidden="true">⚖️</span>
+                                <div><strong class="block text-purple-400 uppercase">Sobrio (Cancelación)</strong> Explicar consecuencias. Cero culpa. <em>"Liberarás tu lugar"</em></div>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+
+                <div class="lg:col-span-7 space-y-8 flex flex-col">
+
+                    <!-- Dilema del modal -->
+                    <div class="bg-white border-4 border-black p-6 shadow-[8px_8px_0px_rgba(0,0,0,1)] flex-1 relative">
+                        <h3 class="text-2xl font-black uppercase text-[--brand-blue] mb-6 flex flex-wrap gap-3 justify-between items-center border-b-4 border-black pb-4">
+                            <span>Trade-Off: El Dilema del Modal</span>
+                            <span class="bg-[--brand-red] text-white px-3 py-1 rounded-full text-xs tracking-widest shadow-inner">WCAG 3.3.4</span>
+                        </h3>
+
+                        <p class="text-sm font-medium text-gray-600 mb-4">Ingeniería pedía botones cortos ("Sí/No") para ahorrar espacio. Demostramos que la brevedad ciega inducía un 18% de cancelaciones involuntarias.</p>
+
+                        <div class="flex flex-col sm:flex-row gap-8 sm:gap-6 mt-6">
+                            <!-- Antes -->
+                            <div class="flex-1 border-2 border-dashed border-gray-400 p-4 rounded-xl relative bg-gray-50">
+                                <span class="absolute -top-3 left-4 bg-white px-2 font-black text-gray-500 uppercase text-[10px]">❌ Antes (Ambigüedad)</span>
+                                <div class="text-center mt-2 opacity-60">
+                                    <h4 class="font-bold text-lg">¿Estás seguro?</h4>
+                                    <p class="text-sm mt-1 text-gray-600">Vas a cancelar tu lugar.</p>
+                                    <div class="flex gap-2 mt-4">
+                                        <div class="flex-1 bg-gray-200 py-2 font-bold text-sm text-center rounded">Sí</div>
+                                        <div class="flex-1 bg-[--brand-yellow] py-2 font-bold text-sm text-center rounded">No</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Después -->
+                            <div class="flex-1 border-4 border-emerald-500 p-4 rounded-xl relative bg-emerald-50 shadow-lg transform -rotate-1">
+                                <span class="absolute -top-3 right-4 bg-emerald-600 text-white px-3 py-1 rounded-full font-black uppercase text-[10px]">✅ Diseño Seguro WCAG</span>
+                                <div class="text-center mt-2">
+                                    <h4 class="font-bold text-lg leading-tight text-gray-900">¿Querés cancelar tu clase de Spinning?</h4>
+                                    <p class="text-xs mt-2 text-gray-700 leading-tight">Liberarás tu lugar para otra persona. Podrás volver a reservar si hay cupos.</p>
+                                    <div class="flex flex-col gap-2 mt-4">
+                                        <div class="w-full bg-black text-white py-2 font-bold text-xs text-center rounded">Mantener mi lugar</div>
+                                        <div class="w-full border-2 border-red-200 text-red-600 py-2 font-bold text-xs text-center rounded bg-white">Cancelar mi reserva</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Handoff y chatbot -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 flex-1">
+
+                        <!-- Terminal JSON -->
+                        <div class="bg-[#1e1e1e] border-4 border-black rounded-xl overflow-hidden shadow-[8px_8px_0px_rgba(0,0,0,1)] flex flex-col">
+                            <div class="bg-gray-300 border-b-2 border-black p-2 flex items-center gap-2">
+                                <div class="w-3 h-3 rounded-full bg-[--brand-red] border border-black"></div>
+                                <div class="w-3 h-3 rounded-full bg-[--brand-yellow] border border-black"></div>
+                                <div class="w-3 h-3 rounded-full bg-emerald-400 border border-black"></div>
+                                <span class="ml-2 font-mono text-[10px] font-bold text-gray-700">handoff_tokens.json</span>
+                            </div>
+<pre class="p-4 font-mono text-[11px] leading-relaxed text-gray-300 flex-1 overflow-x-auto"><span class="text-blue-300">Title_Booking</span>: <span class="text-[--brand-yellow]">"Reserva tu clase de {discipline}"</span>,
+<span class="text-gray-400">// Fallback condicional</span>
+<span class="text-purple-400">If</span> (coach == null) {
+  render(<span class="text-[--brand-yellow]">"Profesor de staff"</span>);
+}
+
+<span class="text-gray-400">// Lógica Accesibilidad WCAG</span>
+Upload.setAttribute(
+  <span class="text-[--brand-yellow]">"aria-live"</span>, <span class="text-[--brand-yellow]">"polite"</span>
+);</pre>
+                        </div>
+
+                        <!-- Chatbot -->
+                        <div class="bg-white border-4 border-black rounded-xl overflow-hidden shadow-[8px_8px_0px_rgba(0,0,0,1)] flex flex-col">
+                            <div class="bg-[--brand-blue] border-b-2 border-black p-3 flex justify-between items-center text-white">
+                                <span class="font-bold text-sm">🤖 Bot FitPulse (WhatsApp)</span>
+                            </div>
+                            <div class="p-4 bg-gray-50 flex-1 flex flex-col gap-3 text-xs">
+                                <div class="self-end bg-blue-100 p-2 rounded-l-xl rounded-tr-xl border border-blue-200 max-w-[80%]">Quiero dar de baja mi turno pero la app no me deja.</div>
+                                <div class="self-start bg-white p-2 rounded-r-xl rounded-tl-xl border border-gray-300 max-w-[90%] shadow-sm">
+                                    <strong class="text-[--brand-blue]">Asistente FitPulse</strong><br>
+                                    Entiendo. Como faltan menos de 2 horas para la clase, la cancelación consume tu crédito. ¿Querés que cancelemos igual o preferís mantener tu lugar?
+                                </div>
+                                <div class="mt-auto border-t border-gray-200 pt-2 text-[10px] text-gray-600 font-mono text-center">
+                                    Guardrail: Derivación a humano tras 2 errores de intención.
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- Services End -->
+    </section>
+    </main>
 
+    <!-- FOOTER / CONTACTO -->
+    <footer id="contacto" class="bg-black text-white text-center py-24 relative overflow-hidden border-t-8 border-[--brand-yellow]">
 
-    <!-- Portfolio Start -->
-    <div class="container-fluid pt-5 pb-3" id="portfolio">
-        <div class="container">
-            <div class="position-relative d-flex align-items-center justify-content-center">
-                <h1 class="display-1 text-uppercase text-white" style="-webkit-text-stroke: 1px #dee2e6;">Galeria</h1>
-                <h1 class="position-absolute text-uppercase text-primary">Mis Proyectos</h1>
+        <div class="relative z-10 max-w-5xl mx-auto px-6">
+
+            <div class="mb-12">
+                <h2 class="text-4xl md:text-6xl font-black uppercase tracking-tight mb-4 font-display">
+                    ¿TE GUSTÓ LO QUE <span class="text-[--brand-yellow] border-b-4 border-[--brand-red] pb-1">VISTE?</span>
+                </h2>
+                <p class="text-2xl font-hand text-gray-300 max-w-2xl mx-auto leading-relaxed mt-6">
+                    Si estás buscando un diseñador para crear una app increíble, rediseñar una web, o simplemente charlar sobre UX... ¡Hablemos! Siempre estoy abierto a nuevos desafíos.
+                </p>
             </div>
-            <div class="row">
-                <div class="col-12 text-center mb-2">
-                    <ul class="list-inline mb-4" id="portfolio-flters">
-                        <li class="btn btn-sm btn-outline-primary m-1 active" data-filter="*">Todo</li>
-                        <li class="btn btn-sm btn-outline-primary m-1" data-filter=".first">Diseño</li>
-                        <li class="btn btn-sm btn-outline-primary m-1" data-filter=".second">Programacion</li>
-                        <li class="btn btn-sm btn-outline-primary m-1" data-filter=".third">Realizacion Audio</li>
-                    </ul>
-                </div>
+
+            <div class="flex justify-center mb-10">
+                <a href="mailto:tosapopolizio@gmail.com" class="flex items-center gap-3 text-lg sm:text-2xl md:text-3xl font-bold hover:text-[--brand-yellow] transition duration-300 bg-white/5 px-4 sm:px-6 py-3 rounded-xl border border-white/10 backdrop-blur-sm break-all">
+                    <span class="text-[--brand-red]" aria-hidden="true">📩</span> tosapopolizio@gmail.com
+                </a>
             </div>
-            <div class="row portfolio-container">
-                <div class="col-lg-4 col-md-6 mb-4 portfolio-item first">
-                    <div class="position-relative overflow-hidden mb-2">
-                        <img class="img-fluid rounded w-100" src="img/portfolio-1.jpg" alt="">
-                        <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center">
-                            <a href="img/portfolio-1.jpg" data-lightbox="portfolio">
-                                <i class="fa fa-plus text-white" style="font-size: 60px;"></i>
-                            </a>
+
+            <div class="flex flex-col md:flex-row justify-center items-center gap-8 md:gap-16 mb-20">
+
+                <!-- Polaroid LinkedIn -->
+                <div class="relative group hidden sm:block w-40 shrink-0">
+                    <div class="tape-blue absolute -top-3 left-1/2 -translate-x-1/2 w-16 h-6 z-20"></div>
+                    <div class="bg-white p-3 shadow-lg transform -rotate-3 border border-gray-200">
+                        <div class="relative w-full aspect-square bg-gray-100 border-2 border-dashed border-gray-300 flex items-center justify-center mb-2 overflow-hidden">
+                            <span class="text-gray-400 text-3xl">+</span>
+                            <img src="img/qr-linkedin.png" alt="QR a mi LinkedIn" class="absolute inset-0 w-full h-full object-contain bg-white" onerror="this.remove()">
                         </div>
+                        <p class="font-black text-black text-[10px] text-center uppercase tracking-wider">ESCANEA CV</p>
+                        <p class="font-hand text-gray-500 text-sm text-center">LinkedIn</p>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 mb-4 portfolio-item second">
-                    <div class="position-relative overflow-hidden mb-2">
-                        <img class="img-fluid rounded w-100" src="img/portfolio-2.jpg" alt="">
-                        <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center">
-                            <a href="img/portfolio-2.jpg" data-lightbox="portfolio">
-                                <i class="fa fa-plus text-white" style="font-size: 60px;"></i>
-                            </a>
+
+                <!-- Botones -->
+                <div class="flex flex-wrap justify-center gap-4">
+                    <!-- TODO: reemplazar "#" por tus URLs de LinkedIn y Behance -->
+                    <a href="#" target="_blank" rel="noopener" class="px-8 py-4 border-2 border-white text-white hover:bg-white hover:text-black font-black uppercase tracking-widest text-sm transition">LINKEDIN</a>
+                    <a href="#" target="_blank" rel="noopener" class="px-8 py-4 border-2 border-white text-white hover:bg-white hover:text-black font-black uppercase tracking-widest text-sm transition">BEHANCE</a>
+                    <a href="mailto:tosapopolizio@gmail.com" class="px-8 py-4 bg-[--brand-red] text-white font-black uppercase tracking-widest text-sm transition hover:bg-[--brand-yellow] hover:text-black shadow-[4px_4px_0px_white] hover:shadow-none hover:translate-x-1 hover:translate-y-1">ESCRÍBEME</a>
+                </div>
+
+                <!-- Polaroid Instagram -->
+                <div class="relative group hidden sm:block w-40 shrink-0">
+                    <div class="tape-yellow absolute -top-3 left-1/2 -translate-x-1/2 w-16 h-6 z-20"></div>
+                    <div class="bg-white p-3 shadow-lg transform rotate-3 border border-gray-200">
+                        <div class="relative w-full aspect-square bg-gray-100 border-2 border-dashed border-gray-300 flex items-center justify-center mb-2 overflow-hidden">
+                            <svg class="w-8 h-8 text-gray-300" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                            <img src="img/qr-instagram.png" alt="QR a mi Instagram" class="absolute inset-0 w-full h-full object-contain bg-white" onerror="this.remove()">
                         </div>
+                        <p class="font-black text-black text-[10px] text-center uppercase tracking-wider">DISEÑOS</p>
+                        <p class="font-hand text-[--brand-red] text-sm text-center">Instagram</p>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 mb-4 portfolio-item third">
-                    <div class="position-relative overflow-hidden mb-2">
-                        <img class="img-fluid rounded w-100" src="img/portfolio-3.jpg" alt="">
-                        <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center">
-                            <a href="img/portfolio-3.jpg" data-lightbox="portfolio">
-                                <i class="fa fa-plus text-white" style="font-size: 60px;"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
+
+            </div>
+
+            <div class="pt-8 border-t border-white/10 flex flex-col items-center gap-1">
+                <p class="font-display text-2xl font-black uppercase tracking-widest text-gray-400">TOMÁS POPOLIZIO</p>
+                <p class="text-[--brand-yellow] font-bold tracking-widest uppercase text-[10px]">DISEÑADOR UX/UI & CONTENT DESIGN · 2026</p>
             </div>
         </div>
-    </div>
-    <!-- Portfolio End -->
+    </footer>
 
-    <!-- Footer Start -->
-    <div class="container-fluid bg-primary text-white mt-5 py-5 px-sm-3 px-md-5">
-        <div class="container text-center py-5">
-            <div class="d-flex justify-content-center mb-4">
-                <a class="btn btn-light btn-social mr-2" href="https://twitter.com/Tomy865_   "><i
-                        class="fab fa-twitter"></i></a>
-                <a class="btn btn-light btn-social mr-2"
-                    href="https://www.linkedin.com/in/tomas-popolizio-b0a8b9256/"><i class="fab fa-linkedin-in"></i></a>
-                <a class="btn btn-light btn-social" href="https://www.instagram.com/young_tomy_/?next=%2F"><i
-                        class="fab fa-instagram"></i></a>
-            </div>
-            </p>
-        </div>
-    </div>
-    <!-- Footer End -->
-
-    <!-- Scroll to Bottom -->
-    <i class="fa fa-2x fa-angle-down text-white scroll-to-bottom"></i>
-
-    <!-- Back to Top -->
-    <a href="#" class="btn btn-outline-dark px-0 back-to-top"><i class="fa fa-angle-double-up"></i></a>
-
-
-    <!-- JavaScript Libraries -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/typed/typed.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/waypoints/waypoints.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-    <script src="lib/isotope/isotope.pkgd.min.js"></script>
-    <script src="lib/lightbox/js/lightbox.min.js"></script>
-
-    <!-- Contact Javascript File -->
-    <script src="mail/jqBootstrapValidation.min.js"></script>
-    <script src="mail/contact.js"></script>
-
-    <!-- Template Javascript -->
-    <script src="js/main.js"></script>
 </body>
-
 </html>
