@@ -4,9 +4,9 @@ Sitio de una sola página (`index.html`) hecho con Tailwind CSS (por CDN) y Goog
 
 ## Imágenes
 
-El avatar del inicio está en `img/avatar.webp` y el CV en `TomasPopolizio_CV_2026.pdf`.
-
-Para la foto de "Sobre mí", subí `img/foto.jpg` (si falta, se muestra un placeholder).
+- Avatar del inicio: `img/avatar.webp`
+- Foto de "Sobre mí": `img/foto.webp`
+- CV: `TomasPopolizio_CV_2026.pdf`
 
 ## Publicar en GitHub Pages
 
