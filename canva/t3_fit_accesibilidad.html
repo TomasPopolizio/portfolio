@@ -1,0 +1,52 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="robots" content="noindex"><title>Accesibilidad fácil</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"><style>
+:root{--bg:#0B1124;--surface:#161D38;--line:#2A335A;--text:#F3F1EA;--muted:#8E95B0;--accent:#F2C14E;--paper:#F6F4EE;--ink:#0E1A3D}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#fff;font-family:'Inter',sans-serif;-webkit-font-smoothing:antialiased}
+.slide{width:1080px;height:1350px;position:relative;overflow:hidden;background:var(--bg);color:var(--text)}
+.d{font-family:'Inter',sans-serif;font-weight:900;letter-spacing:-.04em;line-height:1}
+.top{position:absolute;top:64px;left:90px;right:90px;display:flex;justify-content:space-between;align-items:center;font-size:26px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.top .b{display:flex;gap:14px;align-items:center}.top .dot{width:14px;height:14px;border-radius:50%;background:var(--accent)}
+.dots{position:absolute;bottom:72px;left:90px;display:flex;gap:12px}.dots i{width:14px;height:14px;border-radius:50%;background:var(--line)}.dots i.on{background:var(--accent);width:40px;border-radius:999px}
+.swipe{position:absolute;bottom:62px;right:90px;font-size:30px;font-weight:700;color:var(--muted)}
+.c{position:absolute;left:90px;right:90px;top:180px;bottom:170px;display:flex;flex-direction:column;justify-content:center}
+.huge{font-size:150px}.big{font-size:110px}.mid{font-size:60px;font-weight:800;letter-spacing:-.02em;line-height:1.15}
+.small{font-size:40px;font-weight:500;color:var(--muted);line-height:1.35}
+.acc{color:var(--accent)}
+.card{background:var(--surface);border:2px solid var(--line);border-radius:44px}
+.cta{display:inline-block;background:var(--accent);color:var(--bg);font-weight:900;font-size:48px;letter-spacing:-.02em;padding:28px 50px;border-radius:999px}
+.label{font-size:30px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:28px}
+.phone{width:480px;height:880px;border:8px solid #2A335A;border-radius:68px;background:var(--paper);overflow:hidden;color:var(--ink);position:relative}
+.phone .notch{position:absolute;top:20px;left:50%;transform:translateX(-50%);width:130px;height:34px;background:var(--bg);border-radius:999px}
+</style></head><body><section class="slide" data-document-role="page" data-label="Slide 1">
+<div class="top"><div class="b"><span class="dot"></span>Nyxus Studio</div><div>FitPulse · UX Writing</div></div>
+<div class="c" style="justify-content:flex-start;padding-top:110px"><div class="label" style="color:var(--accent)">Accesibilidad</div><div class="d" style="font-size:112px">Accesibilidad web, <span class="acc">explicada fácil.</span></div>
+ <div class="small" style="margin-top:40px;max-width:600px">5 reglas WCAG que apliqué en FitPulse.</div></div>
+ <img src="https://tomaspopolizio.github.io/portfolio/canva/char.png" style="position:absolute;width:240px;right:80px;bottom:150px">
+<div class="dots"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></div><div class="swipe">Deslizá →</div></section><section class="slide" data-document-role="page" data-label="Slide 2">
+<div class="top"><div class="b"><span class="dot"></span>Nyxus Studio</div><div>FitPulse · UX Writing</div></div>
+<div class="c"><div class="label">1 de 5</div><div class="d" style="font-size:92px">Contraste <span class="acc">suficiente.</span></div>
+ <div class="small" style="margin-top:28px;font-size:42px">Texto claro sobre fondo oscuro (o al revés). Si cuesta leerlo, falla.</div><div style="margin-top:56px"><div style="display:flex;gap:24px"><div style="flex:1;background:#2B3352;color:#4A5378;border-radius:28px;padding:34px;text-align:center;font-weight:800;font-size:44px">Reservar ✗</div><div style="flex:1;background:var(--accent);color:var(--bg);border-radius:28px;padding:34px;text-align:center;font-weight:900;font-size:44px">Reservar ✓</div></div></div></div>
+<div class="dots"><i class=""></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></div><div class="swipe">Deslizá →</div></section><section class="slide" data-document-role="page" data-label="Slide 3">
+<div class="top"><div class="b"><span class="dot"></span>Nyxus Studio</div><div>FitPulse · UX Writing</div></div>
+<div class="c"><div class="label">2 de 5</div><div class="d" style="font-size:92px">Etiquetas que <span class="acc">se leen.</span></div>
+ <div class="small" style="margin-top:28px;font-size:42px">Cada campo dice qué pedís. El placeholder no alcanza.</div><div style="margin-top:56px"><div style="font-size:32px;font-weight:700;color:var(--muted);margin-bottom:12px">Email</div><div class="card" style="padding:30px 36px;font-size:40px;color:#5B6585">tu@email.com</div></div></div>
+<div class="dots"><i class=""></i><i class=""></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></div><div class="swipe">Deslizá →</div></section><section class="slide" data-document-role="page" data-label="Slide 4">
+<div class="top"><div class="b"><span class="dot"></span>Nyxus Studio</div><div>FitPulse · UX Writing</div></div>
+<div class="c"><div class="label">3 de 5</div><div class="d" style="font-size:92px">Errores con <span class="acc">salida.</span></div>
+ <div class="small" style="margin-top:28px;font-size:42px">Decí qué pasó y cómo seguir. Nunca solo "Error".</div><div style="margin-top:56px"><div style="background:#2A2033;border:2px solid #E98579;border-radius:28px;padding:30px 36px;font-size:38px;font-weight:600">No encontramos ese horario. <span class="acc">Ver otros horarios →</span></div></div></div>
+<div class="dots"><i class=""></i><i class=""></i><i class=""></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></div><div class="swipe">Deslizá →</div></section><section class="slide" data-document-role="page" data-label="Slide 5">
+<div class="top"><div class="b"><span class="dot"></span>Nyxus Studio</div><div>FitPulse · UX Writing</div></div>
+<div class="c"><div class="label">4 de 5</div><div class="d" style="font-size:92px">Avisos para <span class="acc">lectores de pantalla.</span></div>
+ <div class="small" style="margin-top:28px;font-size:42px">Los cambios importantes se anuncian en voz alta.</div><div style="margin-top:56px"><div class="code" style="font-family:monospace;font-size:34px;background:var(--surface);border:2px solid var(--line);border-radius:28px;padding:30px 36px">aria-live=<span class="acc">"polite"</span></div></div></div>
+<div class="dots"><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class="on"></i><i class=""></i><i class=""></i></div><div class="swipe">Deslizá →</div></section><section class="slide" data-document-role="page" data-label="Slide 6">
+<div class="top"><div class="b"><span class="dot"></span>Nyxus Studio</div><div>FitPulse · UX Writing</div></div>
+<div class="c"><div class="label">5 de 5</div><div class="d" style="font-size:92px">Confirmá lo <span class="acc">irreversible.</span></div>
+ <div class="small" style="margin-top:28px;font-size:42px">Antes de cancelar o borrar, explicá la consecuencia (WCAG 3.3.4).</div><div style="margin-top:56px"><div style="display:flex;gap:20px"><div style="flex:1;background:var(--paper);color:var(--ink);border-radius:26px;padding:28px;text-align:center;font-weight:800;font-size:36px">Mantener mi clase</div><div style="flex:1;border:4px solid #E98579;color:#E98579;border-radius:26px;padding:24px;text-align:center;font-weight:800;font-size:36px">Cancelar clase</div></div></div></div>
+<div class="dots"><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class="on"></i><i class=""></i></div><div class="swipe">Deslizá →</div></section><section class="slide" data-document-role="page" data-label="Slide 7">
+<div class="top"><div class="b"><span class="dot"></span>Nyxus Studio</div><div>FitPulse · UX Writing</div></div>
+<div class="c" style="justify-content:flex-start;padding-top:40px;text-align:center">
+  <div class="d big">Una app accesible<br><span class="acc">es para todos.</span></div><div class="small" style="margin-top:26px">Compartilo con tu equipo.</div></div>
+<img src="https://tomaspopolizio.github.io/portfolio/canva/char.png" style="position:absolute;width:330px;left:375px;top:640px">
+<div style="position:absolute;left:0;right:0;bottom:170px;text-align:center"><span class="cta">Escribime "PROYECTO"</span></div>
+<div class="dots"><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class="on"></i></div></section></body></html>
