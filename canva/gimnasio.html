@@ -1,0 +1,188 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="robots" content="noindex"><title>Caso 02 · App de gimnasio</title><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"><style>:root{
+  --paper:#F4F0E6; --paper2:#EAE3D2; --blue:#2453C3; --ink:#1D3F8C; --navy:#0E1A3D;
+  --sky:#DCE5F8; --sun:#FFC94A; --white:#FFFFFF; --muted:#5B6585; --red:#E2574C; --green:#2E9E6B;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#888;font-family:'Inter',sans-serif;color:var(--navy);-webkit-font-smoothing:antialiased}
+.slide{width:1080px;height:1350px;position:relative;overflow:hidden;background:var(--paper);margin:0 0 40px 0}
+.slide.paper::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(29,63,140,.13) 2px,transparent 2.4px);background-size:36px 36px;pointer-events:none}
+.slide.navy{background:var(--navy);color:var(--paper)}
+.slide.blue{background:var(--blue);color:var(--white)}
+.h,.disp{font-family:'Inter',sans-serif;font-weight:900;letter-spacing:-0.035em;line-height:.95}
+.top{position:absolute;top:56px;left:72px;right:72px;display:flex;justify-content:space-between;align-items:center;font-weight:700;font-size:24px;letter-spacing:.12em;text-transform:uppercase;z-index:5}
+.top .brand{display:flex;gap:14px;align-items:center}
+.top .dot{width:16px;height:16px;border-radius:50%;background:var(--blue)}
+.navy .top .dot,.blue .top .dot{background:var(--sun)}
+.top .pg{font-variant-numeric:tabular-nums;opacity:.7}
+.foot{position:absolute;bottom:56px;left:72px;right:72px;display:flex;justify-content:space-between;align-items:center;font-weight:700;font-size:26px;z-index:5}
+.foot .swipe{display:flex;align-items:center;gap:12px;background:var(--navy);color:var(--paper);padding:14px 26px;border-radius:999px}
+.navy .foot .swipe,.blue .foot .swipe{background:var(--paper);color:var(--navy)}
+.body{position:absolute;top:150px;left:72px;right:72px;bottom:150px;display:flex;flex-direction:column;z-index:3}
+.eyebrow{display:inline-flex;align-self:flex-start;align-items:center;gap:12px;font-weight:800;font-size:26px;letter-spacing:.1em;text-transform:uppercase;background:var(--sky);color:var(--ink);padding:12px 22px;border-radius:999px;margin-bottom:34px}
+.navy .eyebrow{background:rgba(255,255,255,.1);color:var(--sun)}
+.blue .eyebrow{background:rgba(255,255,255,.16);color:var(--white)}
+.title{font-size:96px;margin-bottom:34px}
+.title em{font-style:normal;color:var(--blue)}
+.navy .title em{color:var(--sun)}
+.lead{font-size:38px;line-height:1.32;font-weight:500;color:#2A355C;max-width:900px}
+.navy .lead{color:#C9D2EA}
+.card{background:var(--white);border:4px solid var(--ink);border-radius:36px;box-shadow:10px 10px 0 var(--ink);padding:38px 40px}
+.num{width:76px;height:76px;flex:none;border-radius:50%;background:var(--blue);color:#fff;display:grid;place-items:center;font-family:'Inter';font-weight:900;font-size:38px;border:4px solid var(--ink)}
+.row{display:flex;gap:28px;align-items:flex-start}
+.ct{font-family:'Inter';font-weight:800;font-size:40px;letter-spacing:-.02em;margin-bottom:8px;line-height:1.1}
+.cd{font-size:30px;line-height:1.35;color:#3A4566;font-weight:500}
+.pill{display:inline-block;font-weight:800;font-size:22px;letter-spacing:.08em;text-transform:uppercase;padding:8px 16px;border-radius:999px}
+.char{position:absolute;filter:drop-shadow(0 18px 0 rgba(14,26,61,.18))}
+.phone{width:420px;height:820px;border:6px solid var(--navy);border-radius:58px;background:#fff;position:relative;overflow:hidden;box-shadow:12px 12px 0 var(--ink)}
+.phone .notch{position:absolute;top:16px;left:50%;transform:translateX(-50%);width:120px;height:30px;background:var(--navy);border-radius:999px}
+.phone .scr{position:absolute;inset:62px 22px 22px 22px;display:flex;flex-direction:column;gap:14px;font-size:20px}
+.mrow{display:flex;justify-content:space-between;align-items:center;font-size:23px;font-weight:600;color:#2A355C}
+.bar{height:2px;background:#E4E7EF}
+.sticker{position:absolute;font-family:'Inter';font-weight:900;border:4px solid var(--ink);border-radius:999px;padding:12px 24px;font-size:28px;box-shadow:6px 6px 0 var(--ink);transform:rotate(-6deg);z-index:6}
+.code{font-family:'DejaVu Sans Mono',monospace;font-size:25px;line-height:1.55;background:var(--navy);color:#D7E0F7;border-radius:30px;padding:36px 40px;border:4px solid var(--ink);box-shadow:10px 10px 0 var(--ink);white-space:pre}
+.code .k{color:#8FB2FF}.code .s{color:var(--sun)}.code .c{color:#7C88AA}
+
+.slide{margin:0}body{background:#fff}</style>
+<style>
+.cover-glow{position:absolute;width:1100px;height:1100px;border-radius:50%;background:radial-gradient(circle,#2453C3 0%,rgba(36,83,195,0) 62%);right:-430px;bottom:-330px;opacity:.9}
+.tag{display:inline-block;align-self:flex-start;margin-top:8px;font-weight:800;font-size:28px;letter-spacing:.06em;text-transform:uppercase;color:var(--navy);background:var(--sun);padding:12px 24px;border-radius:14px;transform:rotate(-2deg);border:4px solid #0a1230}
+.cover-char{width:440px;right:40px;bottom:140px}
+.bubble{position:absolute;right:60px;bottom:870px;background:var(--paper);color:var(--navy);font-family:'Inter';font-weight:900;font-size:46px;padding:18px 34px;border-radius:40px;border:5px solid var(--ink);box-shadow:8px 8px 0 #0a1230;z-index:6}
+.bubble::after{content:"";position:absolute;bottom:-26px;left:60px;border:16px solid transparent;border-top:24px solid var(--paper);filter:drop-shadow(0 4px 0 var(--ink))}
+.cta-swipe{position:absolute;left:72px;bottom:150px;font-family:'Inter';font-weight:900;font-size:50px;color:var(--sun);z-index:6}
+.cta-swipe .arr{display:inline-block}
+.check{width:58px;height:58px;flex:none;border-radius:50%;background:var(--sun);border:4px solid var(--ink);display:grid;place-items:center;font-weight:900;font-size:30px;color:var(--navy)}
+.cta-box{position:absolute;left:72px;right:72px;bottom:150px;background:var(--navy);color:var(--paper);border-radius:36px;padding:34px 40px;border:4px solid var(--ink);box-shadow:10px 10px 0 var(--blue);z-index:4}
+.cmp{display:flex;gap:44px;justify-content:center;margin-top:10px}
+.cmp .lbl{font-family:'Inter';font-weight:900;font-size:36px;margin-bottom:18px;text-align:center}
+.flow{display:flex;align-items:center;gap:18px}
+.step{flex:1;text-align:center;padding:30px 18px;border-radius:28px;border:4px solid var(--ink);background:#fff;font-weight:800;font-size:30px;box-shadow:7px 7px 0 var(--ink)}
+.arrowx{font-size:52px;font-weight:900;color:var(--ink)}
+.slide .body{justify-content:center}
+.slide .body.tl{justify-content:flex-start}
+.big{font-family:'Inter';font-weight:900;letter-spacing:-.04em;line-height:.9}
+</style>
+</head><body>
+<section class="slide navy" id="s1" data-document-role="page" data-label="Slide 1">
+  <div class="top"><div class="brand"><span class="dot"></span>Nyxus Studio · Caso 02</div><div class="pg">01/07</div></div>
+  
+  <div class="cover-glow"></div>
+  <div class="body tl" style="bottom:auto">
+    <div class="eyebrow">Caso de estudio 02/03</div>
+    <div class="h title" style="font-size:100px;max-width:600px">Registrar tu <em>entrenamiento</em> en 1 toque</div>
+    <div class="tag">App de gimnasio · UX Research</div>
+    <div class="lead" style="max-width:500px;margin-top:30px;font-size:34px">Una app pensada para usar con la mano transpirada, entre serie y serie.</div>
+  </div>
+  <div class="bubble">¡Hola!</div>
+  <img class="char cover-char" src="https://tomaspopolizio.github.io/portfolio/canva/char.png">
+  <div class="cta-swipe">Así lo diseñé <span class="arr">→</span></div>
+
+  <div class="foot"><div>@nyxus_studio</div></div>
+</section>
+<section class="slide paper" id="s2" data-document-role="page" data-label="Slide 2">
+  <div class="top"><div class="brand"><span class="dot"></span>Nyxus Studio · Caso 02</div><div class="pg">02/07</div></div>
+  
+  <div class="body">
+    <div class="eyebrow">El problema</div>
+    <div class="h title">Anotar en el gym <em>corta</em> el entrenamiento</div>
+    <div class="lead">En medio de una rutina, con las manos transpiradas o vendadas, buscar el nombre de un ejercicio y tipearlo genera fricción. Muchos terminan dejando la app.</div>
+    <div class="card" style="margin-top:56px;background:var(--sun)">
+      <div class="ct">Le puse nombre: fricción temporal</div>
+      <div class="cd" style="color:#2A355C">Cada segundo que la app le roba al entrenamiento es un motivo para abandonarla.</div>
+    </div>
+  </div>
+  <div class="foot"><div>@nyxus_studio</div><div class="swipe">Deslizá <span style="font-size:30px">→</span></div></div>
+</section>
+<section class="slide paper" id="s3" data-document-role="page" data-label="Slide 3">
+  <div class="top"><div class="brand"><span class="dot"></span>Nyxus Studio · Caso 02</div><div class="pg">03/07</div></div>
+  
+  <div class="body">
+    <div class="eyebrow">Investigación</div>
+    <div class="h title" style="font-size:80px">Primero <em>escuché</em> a los usuarios</div>
+    <div style="display:flex;gap:26px;margin-bottom:34px">
+      <div class="card" style="flex:1"><div class="ct">Entrevistas 1:1</div><div class="cd">En el gimnasio, en pleno entrenamiento.</div></div>
+      <div class="card" style="flex:1"><div class="ct">Encuestas</div><div class="cd">Para medir cuánto se repetía el problema.</div></div>
+    </div>
+    <div class="card" style="display:flex;gap:30px;align-items:center;background:var(--navy);color:var(--paper)">
+      <div class="big" style="font-size:150px;color:var(--sun)">75%</div>
+      <div class="cd" style="color:#DCE5F8;font-size:32px">pierde tiempo buscando ejercicios dentro de las apps.</div>
+    </div>
+    <div class="cd" style="margin-top:34px;font-size:30px;font-style:italic;border-left:8px solid var(--blue);padding-left:26px">Un entrevistado contó que dejó la app por tener que tipear cada ejercicio, y empezó a anotar todo en las notas del celular.</div>
+  </div>
+  <div class="foot"><div>@nyxus_studio</div><div class="swipe">Deslizá <span style="font-size:30px">→</span></div></div>
+</section>
+<section class="slide blue" id="s4" data-document-role="page" data-label="Slide 4">
+  <div class="top"><div class="brand"><span class="dot"></span>Nyxus Studio · Caso 02</div><div class="pg">04/07</div></div>
+  
+  <div class="body" style="justify-content:center">
+    <div class="eyebrow">Hipótesis</div>
+    <div class="h title" style="font-size:86px;color:#fff">Si registrar una serie lleva <span style="color:var(--sun)">un solo toque</span>, la gente sigue usando la app durante toda la rutina.</div>
+    <div class="lead" style="color:#DCE5F8;margin-top:20px">En el gimnasio, el usuario prioriza el foco físico por sobre las estadísticas detalladas. Por eso el diseño tiene que pedirle lo mínimo.</div>
+  </div>
+  <div class="foot"><div>@nyxus_studio</div><div class="swipe">Deslizá <span style="font-size:30px">→</span></div></div>
+</section>
+<section class="slide paper" id="s5" data-document-role="page" data-label="Slide 5">
+  <div class="top"><div class="brand"><span class="dot"></span>Nyxus Studio · Caso 02</div><div class="pg">05/07</div></div>
+  
+  <div class="body tl">
+    <div class="eyebrow">La solución</div>
+    <div class="h title" style="font-size:72px;margin-bottom:30px">Todo al alcance del <em>pulgar</em></div>
+    <div style="display:flex;gap:40px;align-items:flex-start">
+      <div style="position:relative"><div style="transform:scale(0.9);transform-origin:top center;height:738px"><div class="phone"><div class="notch"></div><div class="scr">
+  <div class="mrow" style="font-size:18px;color:var(--muted)"><span>Pecho · Día 2</span><span>Serie 3 de 4</span></div>
+  <div style="font-family:'Inter';font-weight:900;font-size:34px;letter-spacing:-.02em">Press de banca</div>
+  <div style="background:var(--sky);border-radius:16px;padding:14px 16px;font-size:19px;font-weight:700;color:var(--ink)">⚡ Última vez: 60 kg × 10 reps</div>
+  <div style="margin-top:auto;display:flex;flex-direction:column;gap:14px">
+    <div style="display:flex;align-items:center;justify-content:space-between;background:#F3F5FA;border-radius:20px;padding:12px">
+      <div style="width:76px;height:76px;border-radius:18px;background:#fff;border:3px solid var(--ink);display:grid;place-items:center;font-size:44px;font-weight:900">−</div>
+      <div style="text-align:center"><div style="font-family:'Inter';font-weight:900;font-size:46px">62,5</div><div style="font-size:16px;font-weight:700;color:var(--muted)">KG</div></div>
+      <div style="width:76px;height:76px;border-radius:18px;background:var(--blue);color:#fff;border:3px solid var(--ink);display:grid;place-items:center;font-size:44px;font-weight:900">+</div>
+    </div>
+    <div style="display:flex;align-items:center;justify-content:space-between;background:#F3F5FA;border-radius:20px;padding:12px">
+      <div style="width:76px;height:76px;border-radius:18px;background:#fff;border:3px solid var(--ink);display:grid;place-items:center;font-size:44px;font-weight:900">−</div>
+      <div style="text-align:center"><div style="font-family:'Inter';font-weight:900;font-size:46px">10</div><div style="font-size:16px;font-weight:700;color:var(--muted)">REPS</div></div>
+      <div style="width:76px;height:76px;border-radius:18px;background:var(--blue);color:#fff;border:3px solid var(--ink);display:grid;place-items:center;font-size:44px;font-weight:900">+</div>
+    </div>
+    <div style="background:var(--navy);color:#fff;border-radius:20px;padding:24px;text-align:center;font-weight:900;font-size:26px">✓ Completar serie</div>
+  </div></div></div></div>
+        <div style="position:absolute;left:0;right:0;bottom:6px;height:400px;border-radius:0 0 52px 52px;background:linear-gradient(180deg,rgba(255,201,74,0) 0%,rgba(255,201,74,.35) 100%);pointer-events:none"></div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:24px;padding-top:30px">
+        <div class="card" style="padding:28px 30px"><div class="ct" style="font-size:32px">Sugerencias inteligentes</div><div class="cd" style="font-size:26px">Arranca con el peso y las reps de la última vez.</div></div>
+        <div class="card" style="padding:28px 30px"><div class="ct" style="font-size:32px">Botones + y −</div><div class="cd" style="font-size:26px">Grandes y abajo, en la zona del pulgar.</div></div>
+        <div class="card" style="padding:28px 30px"><div class="ct" style="font-size:32px">Cero tipeo</div><div class="cd" style="font-size:26px">Una serie se registra con un toque.</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="sticker" style="background:var(--sun);left:520px;bottom:240px">Zona del pulgar 👍</div>
+
+  <div class="foot"><div>@nyxus_studio</div><div class="swipe">Deslizá <span style="font-size:30px">→</span></div></div>
+</section>
+<section class="slide paper" id="s6" data-document-role="page" data-label="Slide 6">
+  <div class="top"><div class="brand"><span class="dot"></span>Nyxus Studio · Caso 02</div><div class="pg">06/07</div></div>
+  
+  <div class="body">
+    <div class="eyebrow">Próximo paso</div>
+    <div class="h title" style="font-size:86px">Una hipótesis se <em>valida</em>, no se supone</div>
+    <div class="lead" style="margin-bottom:46px">Este proyecto llega hasta la hipótesis y el diseño. Para comprobarla, el plan es:</div>
+    <div style="display:flex;flex-direction:column;gap:26px">
+      <div class="card row"><div class="num">1</div><div><div class="ct">Prototipo navegable</div><div class="cd">Probarlo en el gimnasio, en uso real.</div></div></div>
+      <div class="card row"><div class="num">2</div><div><div class="ct">Medir la retención</div><div class="cd">¿Cuántos registran la rutina completa?</div></div></div>
+      <div class="card row"><div class="num">3</div><div><div class="ct">Iterar</div><div class="cd">Ajustar el diseño con lo que muestren los datos.</div></div></div>
+    </div>
+  </div>
+  <div class="foot"><div>@nyxus_studio</div><div class="swipe">Deslizá <span style="font-size:30px">→</span></div></div>
+</section>
+<section class="slide paper" id="s7" data-document-role="page" data-label="Slide 7">
+  <div class="top"><div class="brand"><span class="dot"></span>Nyxus Studio · Caso 02</div><div class="pg">07/07</div></div>
+  
+  <div class="body tl">
+    <div class="eyebrow">Por qué trabajar conmigo</div>
+    <div class="h title" style="font-size:84px;max-width:860px">Diseño apps que la gente <em>sigue usando</em></div>
+    <div style="max-width:640px;margin-top:6px"><div class="row" style="align-items:center;margin-bottom:26px"><div class="check">✓</div><div class="cd" style="font-size:32px;color:#2A355C"><b style="color:var(--navy)">Investigo antes de diseñar,</b> con usuarios reales.</div></div><div class="row" style="align-items:center;margin-bottom:26px"><div class="check">✓</div><div class="cd" style="font-size:32px;color:#2A355C"><b style="color:var(--navy)">Entiendo el contexto de uso,</b> no solo la pantalla.</div></div><div class="row" style="align-items:center;margin-bottom:26px"><div class="check">✓</div><div class="cd" style="font-size:32px;color:#2A355C"><b style="color:var(--navy)">Convierto hallazgos</b> en decisiones concretas.</div></div></div>
+  </div>
+  <div class="cta-box"><div style="font-size:26px;font-weight:700;opacity:.8;margin-bottom:6px">¿Tenés un proyecto?</div><div class="h" style="font-size:52px">Escribime <span style="color:var(--sun)">"PROYECTO"</span> por MD</div></div>
+  <img class="char" src="https://tomaspopolizio.github.io/portfolio/canva/char.png" style="width:330px;right:40px;bottom:250px;transform:rotate(3deg)">
+
+  <div class="foot"><div>@nyxus_studio</div></div>
+</section></body></html>
